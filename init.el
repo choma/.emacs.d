@@ -533,26 +533,10 @@
 (load-theme 'moe-dark t)
 (powerline-moe-theme)
 
-;; Idea and part of the code taken from flycheck-color-mode-line:
-;; https://github.com/flycheck/flycheck-color-mode-line
-(defun flycheck-color-mode-line-reset ()
-  "Reset the mode line face."
-  (moe-theme-set-color 'green))
-(defun flycheck-color-mode-line-update ()
-  "Update the mode line face according to the Flycheck status."
-  (flycheck-color-mode-line-reset)
-  (-when-let (moe-theme-color (cond ((flycheck-has-current-errors-p 'error)
-				     'red)
-				    ((flycheck-has-current-errors-p 'warning)
-				     'orange)
-				    ((flycheck-has-current-errors-p 'info)
-				     'blue)))
-    (moe-theme-set-color moe-theme-color)
-    ))
-(add-hook 'flycheck-after-syntax-check-hook
-	  #'flycheck-color-mode-line-update)
-(add-hook 'flycheck-syntax-check-failed-hook
-	  #'flycheck-color-mode-line-reset nil t)
+;; (moe-flycheck-mode-line)
+(require 'moe-flycheck-mode-line)
+(eval-after-load "flycheck"
+  '(add-hook 'flycheck-mode-hook 'moe-flycheck-mode-line-mode))
 
 
 ;; smart-mode-line directory prefixes
