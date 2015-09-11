@@ -519,17 +519,17 @@
 	    (setq sml/theme nil)
 	    (sml/setup)))
 
-;; powerline
-(use-package powerline
-  :ensure powerline)
-(add-hook 'after-change-major-mode-hook 'powerline-moe-theme)
-
 ;; moe
 (use-package moe-theme
   :ensure moe-theme)
 (moe-dark) ;; moe isn't just a theme, so it could be called this way
 (load-theme 'moe-dark t)
 (powerline-moe-theme)
+
+;; powerline
+(use-package powerline
+  :ensure powerline)
+(add-hook 'after-change-major-mode-hook 'powerline-moe-theme)
 
 ;; (moe-flycheck-mode-line)
 (require 'moe-flycheck-mode-line)
