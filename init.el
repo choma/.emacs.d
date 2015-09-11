@@ -89,7 +89,8 @@
 
 ;; search matches counter
 (use-package anzu
-  :ensure anzu)
+  :ensure anzu
+  :diminish anzu-mode)
 (global-anzu-mode +1)
 
 ;; Magit!! :D
@@ -225,7 +226,8 @@
 
 ;; snippets
 (use-package yasnippet
-  :ensure yasnippet)
+  :ensure yasnippet
+  :diminish yas-minor-mode)
 ;; (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
@@ -262,6 +264,7 @@
 ;; company (autocomplete)
 (use-package company
   :ensure company
+  :diminish company-mode
   :init (progn
 	  (add-hook 'after-init-hook 'global-company-mode)
 	  (setq company-auto-complete nil)
@@ -279,6 +282,7 @@
 ;; autopair
 (use-package autopair
   :ensure autopair
+  :diminish autopair-mode
   :init (progn
 	  (autopair-global-mode t)))
 
@@ -357,7 +361,8 @@
 
 ;; emmet (zen coding)
 (use-package emmet-mode
-  :ensure emmet-mode)
+  :ensure emmet-mode
+  :diminish emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode)
 (use-package helm-emmet
   :ensure helm-emmet)
@@ -490,7 +495,9 @@
 
 ;; change window size automatically on focus
 (use-package golden-ratio
-  :ensure golden-ratio)
+  :ensure golden-ratio
+  :diminish golden-ratio-mode
+  )
 (golden-ratio-mode 1)
 
 ;; Font
@@ -546,17 +553,11 @@
 (add-to-list 'sml/replacer-regexp-list '("^~/www/.*/webroot/app/webroot/js/" ":js:") t)
 
 ;; Hide modes in mode line
-;; (require 'diminish)
 (diminish 'visual-line-mode)
-(diminish 'company-mode)
-(diminish 'autopair-mode)
 (diminish 'abbrev-mode)
-(diminish 'yas-minor-mode)
-(diminish 'emmet-mode)
 (global-hi-lock-mode t)
 (diminish 'hi-lock-mode)
-(diminish 'anzu-mode)
-(diminish 'golden-ratio-mode)
+(diminish 'isearch-mode)
 
 
 ;; Find a configuration that work correctly with linum and flycheck
