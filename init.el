@@ -22,25 +22,23 @@
 			 ))
 (package-initialize)
 
-;; TODO check if this is correctly done:
-;; https://github.com/jwiegley/use-package#use-packageel-is-no-longer-needed-at-runtime
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish)                ;; if you use :diminish
-(require 'bind-key)                ;; if you use any :bind variant
-
 (setq load-prefer-newer t)
 (add-to-list 'load-path "~/elisp")
+(add-to-list 'load-path "~/.emacs.d/elisp")
 (unless (package-installed-p 'use-package)
   (progn
     (package-refresh-contents)
     (package-install 'use-package)))
 (setq use-package-verbose t)
-(require 'use-package)
+
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)                ;; if you use :diminish
+(require 'bind-key)                ;; if you use any :bind variant
+
 (use-package auto-compile
   :ensure t)
 (auto-compile-on-load-mode 1)
-
 
 
 ;; ENVIRONMENT DATA
