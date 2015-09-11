@@ -516,11 +516,9 @@
 ;; smart-mode-line
 (use-package smart-mode-line
   :ensure smart-mode-line
-  :init (progn
-	  (setq sml/theme 'dark)
-	  (sml/setup)
-	  )
-  )
+  :config (progn
+	    (setq sml/theme nil)
+	    (sml/setup)))
 
 ;; powerline
 (use-package powerline
