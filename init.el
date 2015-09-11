@@ -4,34 +4,12 @@
 
 ;;; Code:
 
-;; remove useless GUI elements (early to avoid display on startup)
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-
 ;; start emacs server
 (server-start)
 
 ;; PERSONAL DATA
 (setq user-full-name "Matías Croce"
       user-mail-address "mati@nelumboweb.com.ar")
-
-
-;; ENVIRONMENT DATA
-(setq current-language-environment "Spanish")
-
-;; Set locale to UTF8
-(set-language-environment 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(setq locale-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-
-;; move Emacs "Custom" settings to a different file
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file 'noerror)
 
 
 ;; PACKAGES
@@ -51,12 +29,35 @@
 (require 'diminish)                ;; if you use :diminish
 (require 'bind-key)                ;; if you use any :bind variant
 
-;; use-package
+(setq load-prefer-newer t)
+(add-to-list 'load-path "~/elisp")
 (unless (package-installed-p 'use-package)
   (progn
     (package-refresh-contents)
     (package-install 'use-package)))
+(setq use-package-verbose t)
 (require 'use-package)
+(use-package auto-compile
+  :ensure t)
+(auto-compile-on-load-mode 1)
+
+
+
+;; ENVIRONMENT DATA
+(setq current-language-environment "Spanish")
+
+;; Set locale to UTF8
+(set-language-environment 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+
+;; move Emacs "Custom" settings to a different file
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
 
 
 ;; EMACS USAGE
@@ -474,7 +475,13 @@
  ;;bookmark-default-file (concat user-emacs-directory "bookmarks")
  )
 
+
 ;; LAYOUT
+
+;; remove useless GUI elements
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 (tooltip-mode t)
 
