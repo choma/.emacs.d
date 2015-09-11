@@ -298,6 +298,7 @@
 (use-package helm-flycheck
   :ensure helm-flycheck)
 
+
 ;;; Highlights poor English writing.
 ;;(use-package writegood-mode
 ;;  :load-path "lisp/writegood-mode/"
@@ -530,8 +531,28 @@
   :ensure moe-theme)
 (moe-dark) ;; moe isn't just a theme, so it could be called this way
 (load-theme 'moe-dark t)
-;; (powerline-moe-theme)
-;;(moe-theme-set-color 'blue)
+(powerline-moe-theme)
+
+;; Idea and part of the code taken from flycheck-color-mode-line:
+;; https://github.com/flycheck/flycheck-color-mode-line
+(defun flycheck-color-mode-line-reset ()
+  "Reset the mode line face."
+  (moe-theme-set-color 'green))
+(defun flycheck-color-mode-line-update ()
+  "Update the mode line face according to the Flycheck status."
+  (flycheck-color-mode-line-reset)
+  (-when-let (moe-theme-color (cond ((flycheck-has-current-errors-p 'error)
+				     'red)
+				    ((flycheck-has-current-errors-p 'warning)
+				     'orange)
+				    ((flycheck-has-current-errors-p 'info)
+				     'blue)))
+    (moe-theme-set-color moe-theme-color)
+    ))
+(add-hook 'flycheck-after-syntax-check-hook
+	  #'flycheck-color-mode-line-update)
+(add-hook 'flycheck-syntax-check-failed-hook
+	  #'flycheck-color-mode-line-reset nil t)
 
 
 ;; smart-mode-line directory prefixes
