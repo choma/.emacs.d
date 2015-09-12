@@ -92,7 +92,8 @@
   :ensure git-timemachine)
 
 ;; Helm
-;; Copied from Sacha Chua (http://pages.sachachua.com/.emacs.d/Sacha.html#unnumbered-14)
+;; Copied from Sacha Chua:
+;; http://pages.sachachua.com/.emacs.d/Sacha.html#unnumbered-14
 (use-package helm
   :ensure helm
   :diminish helm-mode
@@ -117,7 +118,7 @@
 	 ("M-x" . helm-M-x)
 	 ("C-x c o" . helm-occur) ;; search in current buffer
 	 ("C-x c s" . helm-swoop) ;; search in current buffer
-	 ;; ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers (?) ;; TODO!!
+	 ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers
 	 ("C-x c SPC" . helm-all-mark-rings)))
 (helm-autoresize-mode t)
 (setq helm-buffers-fuzzy-matching t
@@ -258,7 +259,7 @@
 	  (add-to-list 'company-backends 'company-files t)))
 ;; 0.1 second delay before the pop-up appears
 (setq company-idle-delay 0.1)
-;; you only need to enter one character in a buffer before auto-completion starts
+;; only one character before auto-completion starts
 (setq company-minimum-prefix-length 1)
 (setq company-dabbrev-downcase nil)
 
