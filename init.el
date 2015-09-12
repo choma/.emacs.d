@@ -70,16 +70,12 @@
 ;; show symlink targets
 (setq dired-details-hide-link-targets nil)
 
-
 ;; editorconfig (editorconfig.org)
 (use-package editorconfig
   :ensure editorconfig)
 
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; visible error notification
-(setq visible-bell t)
 
 ;; search matches counter
 (use-package anzu
@@ -123,7 +119,6 @@
 	 ("C-x c s" . helm-swoop) ;; search in current buffer
 	 ;; ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers (?) ;; TODO!!
 	 ("C-x c SPC" . helm-all-mark-rings)))
-(ido-mode -1) ;; Turn off ido mode in case I enabled it accidentally)
 (helm-autoresize-mode t)
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
@@ -215,7 +210,6 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-;; TODO: check if this keybind isn't taked
 (define-key global-map (kbd "C-c ESC") 'ace-jump-mode-pop-mark)
 
 ;; snippets
@@ -244,11 +238,6 @@
  kept-new-versions 6
  kept-old-versions 2
  version-control t)       ; use versioned backups
-
-;; auto-revert (warn when saving files that change on disk)
-;;(global-auto-revert-mode 1)
-;; revert buffer from file (TODO: hacer algo mejor. Leer: https://www.gnu.org/software/emacs/manual/html_node/emacs/Reverting.html)
-(global-set-key (kbd "<f5>") 'revert-buffer)
 
 ;; desktop (remember open files from last session)
 (desktop-save-mode t)       ;; save/restore opened files
@@ -299,16 +288,6 @@
 ;;  :bind ("C-c n g" . writegood-mode))
 
 
-;; TODO: create a hook function to add indicator icons for flycheck
-;; ;; flycheck-after-syntax-check-hook
-;; ;; `flycheck-current-errors' ;; var containing flycheck errors
-;; (add-hook 'flycheck-after-syntax-check-hook 'my-after-syntax-check-hook)
-;; (defun my-after-syntax-check-hook()
-;;   "Modify mode line to add syntax error 'icons'."
-;;   (add-to-list 'mode-line-format '"")
-;;   )
-
-
 ;; idle-highlight-mode (highlight current word ocurrences)
 (use-package idle-highlight-mode
   :ensure idle-highlight-mode
@@ -328,7 +307,7 @@
 (use-package web-mode
   :ensure web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
-(add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; vistas cake
+(add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; cake views
 (add-hook 'sgml-mode-hook 'web-mode) ;; Auto-start on any markup modes
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'css-mode-hook 'web-mode)
@@ -349,8 +328,6 @@
   :ensure company-tern)
 (add-to-list 'company-backends 'company-tern)
 (tern-mode t)
-;; (add-to-list 'load-path "~/www/utilidades/tern/emacs/")
-;; (autoload 'tern-mode "tern.el" nil t)
 ;; (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 
 ;; jquery documentation
@@ -398,7 +375,6 @@
 
 ;; PHP
 ;; php-mode
-;; TODO: use other standards for other projects (if any)
 (use-package php-mode
   :ensure php-mode
   :init(progn
@@ -425,7 +401,6 @@
 (use-package php-extras
   :ensure php-extras)
 
-;; TODO: create a cakephp-mode-hook to configure all I need there
 (add-hook 'php-mode-hook 'my-php-mode-hook)
 (defun my-php-mode-hook ()
   "Hook to set php-mode things."
@@ -459,7 +434,6 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;; TODO: categorize/separate ;;;;;;;;;;;;;;;;;
 (setq
  ;; No backups
  make-backup-files nil
@@ -471,8 +445,6 @@
  initial-scratch-message ";; Scratch buffer\n\n(setq debug-on-error t)\n\n"
  ;; Don't keep message buffers around
  message-kill-buffer-on-exit t
- ;; Frame title
- ;;frame-title-format "Emacs %f"
  ;; Kill the whole line
  kill-whole-line t
  ;; Special files localtions
@@ -486,6 +458,9 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
+;; visible error notification
+(setq visible-bell t)
 
 (tooltip-mode t)
 
@@ -559,28 +534,5 @@
 (global-hi-lock-mode t)
 (diminish 'hi-lock-mode)
 (diminish 'isearch-mode)
-
-
-;; Find a configuration that work correctly with linum and flycheck
-;; git-gutter-fringe+ (show git file diff on the fringe)
-;; (use-package git-gutter-fringe+
-;;   :ensure git-gutter-fringe+)
-;; (require 'git-gutter-fringe+)
-
-
-;; HERRAMIENTAS
-
-;; org-mode
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Window-Choice.html
-;; (setq split-height-threshold 0)    ;; avoid org-agenda opens in a new window (it works with other commands too)
-
-;; ;; ecb (Emacs Code Browser)
-;; (use-package ecb
-;;   :ensure ecb)
-;; (setq-default ecb-auto-activate t)
-;; ;;(setq ecb-source-path (quote (("/" "/"))))
-;; (setq ecb-tip-of-the-day nil)
-;; (setq ecb-layout-name "left3")
-;; (setq ecb-windows-width 0.2)
 
 ;;; init.el ends here
