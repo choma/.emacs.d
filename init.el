@@ -324,6 +324,10 @@
 
 ;; LANGUAGES
 
+;; markdown-mode
+(use-package markdown-mode
+  :ensure markdown-mode)
+
 ;; web-mode (php,js,html,css)
 (use-package web-mode
   :ensure web-mode)
