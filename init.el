@@ -60,10 +60,6 @@
 
 ;; EMACS USAGE
 
-;; key bindings (TODO: test... i don't get it)
-;; (use-package god-mode
-;;    :ensure god-mode)
-
 ;; dired
 (use-package dired+
   :ensure dired+)
