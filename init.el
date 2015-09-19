@@ -63,12 +63,6 @@
 ;; dired
 (use-package dired+
   :ensure dired+)
-(use-package dired-details
-  :ensure dired-details)
-(use-package dired-details+
-  :ensure dired-details+)
-;; show symlink targets
-(setq dired-details-hide-link-targets nil)
 
 ;; editorconfig (editorconfig.org)
 (use-package editorconfig
