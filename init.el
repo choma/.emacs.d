@@ -5,7 +5,9 @@
 ;;; Code:
 
 ;; start emacs server
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; PERSONAL DATA
 (setq user-full-name "Matías Croce"
