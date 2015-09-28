@@ -102,6 +102,7 @@
 					; reeeelatively quickly.
 		helm-quick-update t
 		helm-M-x-requires-pattern nil
+		helm-M-x-fuzzy-match t ;; optional fuzzy matching for helm-M-x
 		helm-ff-skip-boring-files t
 		;; helm-autoresize-mode 1
 		helm-ff-file-name-history-use-recentf t)
