@@ -104,6 +104,8 @@
 		helm-M-x-requires-pattern nil
 		helm-M-x-fuzzy-match t ;; optional fuzzy matching for helm-M-x
 		helm-ff-skip-boring-files t
+		helm-buffers-fuzzy-matching t
+		helm-recentf-fuzzy-match t
 		;; helm-autoresize-mode 1
 		helm-ff-file-name-history-use-recentf t)
 	  (helm-mode))
@@ -118,8 +120,6 @@
 	 ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers
 	 ("C-x c SPC" . helm-all-mark-rings)))
 (helm-autoresize-mode t)
-(setq helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match    t)
 
 (use-package helm-ag
   :ensure helm-ag)
