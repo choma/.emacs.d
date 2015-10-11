@@ -543,4 +543,10 @@
 (diminish 'hi-lock-mode)
 (diminish 'isearch-mode)
 
+;; DOCS
+;; TODO: move all docs packages together
+(use-package zeal-at-point
+  :ensure t
+  :bind ("C-c z" . zeal-at-point))
+
 ;;; init.el ends here
