@@ -168,16 +168,6 @@
   :ensure rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-;; Highlight tabulations
-(setq-default highlight-tabs t)
-
-;; Show trailing white spaces
-(setq-default show-trailing-whitespace t)
-
-;; Remove useless whitespace before saving a file
-(add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
-
 ;; agressive indent! :D
 (use-package aggressive-indent
   :ensure aggressive-indent)
