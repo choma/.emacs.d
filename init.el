@@ -178,13 +178,10 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
-;; make return key also do indent, globally
-(electric-indent-mode nil) ;; disabled! it conflicts with aggressive-indent
-
 ;; agressive indent! :D
 (use-package aggressive-indent
   :ensure aggressive-indent)
-(global-aggressive-indent-mode 1)
+(global-aggressive-indent-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
 ;; multiple-cursors
@@ -311,14 +308,6 @@
 (add-hook 'css-mode-hook 'web-mode)
 (setq web-mode-enable-current-element-highlight t) ;; highlight current element
 (setq web-mode-enable-current-column-highlight t) ;; highlight current col
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (setq indent-tabs-mode t)
-  (setq-default tab-width 4)
-  (setq web-mode-code-indent-offset 4)
-  (setq web-mode-markup-indent-offset 4)
-  )
-(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; JS
 ;; js3 (javascript editing)
@@ -376,15 +365,17 @@
 
 ;; PHP
 ;; php-mode
+;; TODO: make doc comments to not indent. Make indentation to always use tabs
 (use-package php-mode
   :ensure php-mode
   :init(progn
 	 (setq-default flycheck-phpcs-standard "CakePHP")
-	 ;;(setq-default indent-tabs-mode t)
 	 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
 	 ;;(eldoc-mode 1)
 	 ;;(php-eldoc-enable t)
 	 ))
+;; set psr-2 coding style
+(add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
 ;; php-auto-yasnippet
 (use-package php-auto-yasnippets
@@ -401,17 +392,6 @@
 ;; php-extras
 (use-package php-extras
   :ensure php-extras)
-
-(add-hook 'php-mode-hook 'my-php-mode-hook)
-(defun my-php-mode-hook ()
-  "Hook to set php-mode things."
-  (setq indent-tabs-mode t)
-  (let ((my-tab-width 4))
-    (setq tab-width my-tab-width)
-    ;; (setq c-basic-indent my-tab-width)
-    (set (make-local-variable 'tab-stop-list)
-	 (number-sequence my-tab-width 200 my-tab-width))))
-
 
 ;; I'm not using it (find a way to use it correctly with cakephp)
 ;; geben (to debug php with xdebug)
