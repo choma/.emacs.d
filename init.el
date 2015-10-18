@@ -26,7 +26,6 @@
 
 (setq load-prefer-newer t)
 (add-to-list 'load-path "~/elisp")
-(add-to-list 'load-path "~/.emacs.d/elisp")
 (unless (package-installed-p 'use-package)
   (progn
     (package-refresh-contents)
@@ -485,6 +484,7 @@
 (powerline-moe-theme)
 
 ;; (moe-flycheck-mode-line)
+(add-to-list 'load-path "~/.emacs.d/git/moe-flycheck-mode-line")
 (require 'moe-flycheck-mode-line)
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'moe-flycheck-mode-line-mode))
