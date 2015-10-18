@@ -3,13 +3,14 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	autopair-insert-opening
-	autopair-insert-or-skip-quote
-	keyboard-escape-quit
-	))
+		autopair-insert-opening
+		autopair-insert-or-skip-quote
+		keyboard-escape-quit
+		))
 
 (setq mc/cmds-to-run-once
       '(
-	beginning-of-visual-line
-	end-of-visual-line
-	))
+		beginning-of-visual-line
+		end-of-visual-line
+		helm-M-x
+		))
