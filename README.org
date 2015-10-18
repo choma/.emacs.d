@@ -1,0 +1,10 @@
+* choma's Emacs configuration
+This is my personal emacs configuration. It is not meant to be used by anybody
+else, but if you take the risk, please report any issue :D
+
+** TODOs [0/4]
+*** TODO Configure mu4e to read my emails
+*** TODO Use orb-babel
+*** TODO Use hydra
+*** TODO Learn to use org-agenda
+*** TODO Use helm-flycheck https://github.com/yasuyk/helm-flycheck/
