@@ -1,0 +1,3 @@
+[submodule "git/moe-flycheck-mode-line"]
+	path = git/moe-flycheck-mode-line
+	url = https://github.com/choma/moe-flycheck-mode-line.git
