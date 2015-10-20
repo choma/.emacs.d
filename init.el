@@ -290,6 +290,13 @@
 ;; web-mode (php,js,html,css)
 (use-package web-mode
   :ensure web-mode)
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq-default tab-width 4)
+  )
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; cake views
 (add-hook 'sgml-mode-hook 'web-mode) ;; Auto-start on any markup modes
