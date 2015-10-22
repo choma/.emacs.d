@@ -302,6 +302,7 @@
 (add-hook 'sgml-mode-hook 'web-mode) ;; Auto-start on any markup modes
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'css-mode-hook 'web-mode)
+(add-hook 'js-mode-hook 'web-mode)
 (setq web-mode-enable-current-element-highlight t) ;; highlight current element
 (setq web-mode-enable-current-column-highlight t) ;; highlight current col
 
