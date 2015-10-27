@@ -330,12 +330,21 @@
 (use-package helm-emmet
   :ensure helm-emmet)
 
+;; lorem ipsum text filler
+(use-package lorem-ipsum
+  :ensure t)
+;; use default bindings
+;; C-c l p	lorem-ipsum-insert-paragraphs
+;; C-c l s	lorem-ipsum-insert-sentences
+;; C-c l l	lorem-ipsum-insert-list
+(lorem-ipsum-use-default-bindings)
+
 ;; CSS
 ;; css documentation
 (use-package css-eldoc
   :ensure css-eldoc
   :init(progn
-	 (eldoc-mode 1)))
+		 (eldoc-mode 1)))
 (add-hook 'css-mode-hook 'turn-on-css-eldoc)
 (add-to-list 'company-backends 'company-css t)
 
