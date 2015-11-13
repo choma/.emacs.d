@@ -11,25 +11,25 @@
 
 ;; PERSONAL DATA
 (setq user-full-name "Matías Croce"
-      user-mail-address "mati@nelumboweb.com.ar")
+	  user-mail-address "mati@nelumboweb.com.ar")
 
 
 ;; PACKAGES
 
 ;; Add package sources
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
-			 ))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+						 ("marmalade" . "https://marmalade-repo.org/packages/")
+						 ("melpa" . "https://melpa.org/packages/")
+						 ))
 (package-initialize)
 
 (setq load-prefer-newer t)
 (add-to-list 'load-path "~/elisp")
 (unless (package-installed-p 'use-package)
   (progn
-    (package-refresh-contents)
-    (package-install 'use-package)))
+	(package-refresh-contents)
+	(package-install 'use-package)))
 (setq use-package-verbose t)
 
 (eval-when-compile
