@@ -143,6 +143,10 @@
 (projectile-global-mode)
 ;; (projectile-enable-caching t)
 
+;; Make projectile search locally only for SVN repos. See:
+;; https://github.com/bbatsov/projectile/issues/520
+(setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
+
 ;; Helm-Projectile integration
 (use-package helm-projectile
   :ensure helm-projectile)
