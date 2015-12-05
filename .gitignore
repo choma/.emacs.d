@@ -1,5 +1,6 @@
 *~
 .init.el*
+flycheck-init.el
 *.elc
 *.desktop*
 projectile-bookmarks.eld
