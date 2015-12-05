@@ -6,6 +6,7 @@
 		autopair-insert-opening
 		autopair-insert-or-skip-quote
 		keyboard-escape-quit
+		overwrite-mode
 		))
 
 (setq mc/cmds-to-run-once
