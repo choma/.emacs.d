@@ -14,4 +14,5 @@
 		beginning-of-visual-line
 		end-of-visual-line
 		helm-M-x
+		org-self-insert-command
 		))
