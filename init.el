@@ -187,6 +187,11 @@
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 
+;; Undo tree
+(use-package undo-tree
+  :ensure undo-tree)
+(global-undo-tree-mode)
+
 ;; Highlight nested parens, brackets, braces a different color at each depth.
 (use-package rainbow-delimiters
   :ensure rainbow-delimiters)
