@@ -18,3 +18,4 @@ recentf
 session.*
 /my-lisp/*.elc
 /.tern-port
+/tldr/
