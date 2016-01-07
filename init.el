@@ -566,4 +566,7 @@
   :ensure t
   :bind ("C-c z" . zeal-at-point))
 
+(use-package tldr
+  :ensure tldr)
+
 ;;; init.el ends here
