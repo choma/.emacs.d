@@ -341,11 +341,13 @@
 (use-package js3-mode
   :ensure js3-mode)
 (add-to-list 'load-path "~/www/utilidades/tern/emacs/")
+(autoload 'tern-mode "tern.el" nil t)
 (use-package company-tern
   :ensure company-tern)
 (add-to-list 'company-backends 'company-tern)
 (tern-mode t)
-;; (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(add-hook 'js3-mode-hook (lambda () (tern-mode t)))
+(add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
 ;; jquery documentation
 (use-package jquery-doc
