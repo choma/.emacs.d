@@ -571,4 +571,8 @@
 (use-package tldr
   :ensure tldr)
 
+;; SERVICES
+(use-package docker
+  :ensure docker)
+
 ;;; init.el ends here
