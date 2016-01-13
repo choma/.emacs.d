@@ -276,6 +276,8 @@
 (setq company-minimum-prefix-length 1)
 (setq company-dabbrev-downcase nil)
 
+(global-set-key (kbd "C-c y") 'company-yasnippet)
+
 ;; autopair
 (use-package autopair
   :ensure autopair
