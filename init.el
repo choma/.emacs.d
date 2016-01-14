@@ -85,6 +85,8 @@
 ;; dired
 (use-package dired+
   :ensure dired+)
+;; Do not open new buffers when visiting new directories
+(diredp-toggle-find-file-reuse-dir 1)
 
 ;; editorconfig (editorconfig.org)
 (use-package editorconfig
