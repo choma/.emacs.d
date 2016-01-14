@@ -579,4 +579,7 @@
 (use-package docker
   :ensure docker)
 
+(use-package restclient
+  :ensure restclient)
+
 ;;; init.el ends here
