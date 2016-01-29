@@ -350,6 +350,7 @@
   :ensure company-tern)
 (add-to-list 'company-backends 'company-tern)
 (tern-mode t)
+(setq tern-command (append tern-command '("--no-port-file"))) ;; don't create .tern-port files
 (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
 (add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
