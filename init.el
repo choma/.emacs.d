@@ -105,6 +105,11 @@
 (use-package magit
   :ensure magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+(use-package magit-gitflow
+  :ensure magit-gitflow)
+(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+
 ;; git-timemachine! :D
 (use-package git-timemachine
   :ensure git-timemachine)
