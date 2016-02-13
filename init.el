@@ -4,6 +4,10 @@
 
 ;;; Code:
 
+;; Temporary workaround for Tramp bug.
+;; See: http://emacs.stackexchange.com/a/14828/7093
+(setq tramp-ssh-controlmaster-options "") ;; reduces init time
+
 ;; start emacs server
 (require 'server)
 (unless (server-running-p)
