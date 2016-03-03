@@ -323,16 +323,16 @@
 (use-package idle-highlight-mode
   :ensure idle-highlight-mode
   :init (progn
-	  (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
-	  (add-hook 'js3-mode-hook (lambda () (idle-highlight-mode t)))
-	  (add-hook 'php-mode-hook (lambda () (idle-highlight-mode t))))
+		  (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
+		  (add-hook 'js3-mode-hook (lambda () (idle-highlight-mode t)))
+		  (add-hook 'php-mode-hook (lambda () (idle-highlight-mode t))))
   )
 
 ;; LANGUAGES
 
 ;; markdown-mode
-(use-package markdown-mode
-  :ensure markdown-mode)
+;; (use-package markdown-mode
+;;   :ensure markdown-mode)
 
 ;; web-mode (php,js,html,css)
 (use-package web-mode
@@ -357,6 +357,8 @@
 ;; js3 (javascript editing)
 (use-package js3-mode
   :ensure js3-mode)
+
+;; tern
 (add-to-list 'load-path "~/www/utilidades/tern/emacs/")
 (autoload 'tern-mode "tern.el" nil t)
 (use-package company-tern
