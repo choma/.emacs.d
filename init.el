@@ -189,6 +189,10 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+(use-package sudo-edit
+  :ensure sudo-edit)
+(global-set-key (kbd "C-c C-r") 'sudo-edit-current-file)
+
 
 ;; CODE EDITING
 
