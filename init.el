@@ -67,8 +67,8 @@
 (auto-compile-on-load-mode 1)
 
 ;; Elisp Bug Hunter!!
-(use-package bug-hunter
-  :ensure t)
+;; (use-package bug-hunter
+;;   :ensure t)
 
 
 ;; ENVIRONMENT DATA
