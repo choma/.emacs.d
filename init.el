@@ -26,14 +26,14 @@
 (setq gnutls-log-level '2)
 (let ((trustfile
 	   (replace-regexp-in-string
-	"\\\\" "/"
-	(replace-regexp-in-string
-	 "\n" ""
-	 (shell-command-to-string "python -m certifi")))))
+		"\\\\" "/"
+		(replace-regexp-in-string
+		 "\n" ""
+		 (shell-command-to-string "python -m certifi")))))
   (setq tls-program
-	(list
-	 (format "gnutls-cli%s --x509cafile %s -p %%p %%h"
-		 (if (eq window-system 'w32) ".exe" "") trustfile)))
+		(list
+		 (format "gnutls-cli%s --x509cafile %s -p %%p %%h"
+				 (if (eq window-system 'w32) ".exe" "") trustfile)))
   (setq gnutls-verify-error t)
   (setq gnutls-trustfiles (list trustfile)))
 ;; Emacs built-in TLS isn't working? see:
@@ -129,31 +129,31 @@
   :ensure helm
   :diminish helm-mode
   :init (progn
-	  (require 'helm-config)
-	  (setq helm-candidate-number-limit 100)
-	  ;; From https://gist.github.com/antifuchs/9238468
-	  (setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
-		helm-input-idle-delay 0.01  ; this actually updates things
-					; reeeelatively quickly.
-		helm-quick-update t
-		helm-M-x-requires-pattern nil
-		helm-M-x-fuzzy-match t ;; optional fuzzy matching for helm-M-x
-		helm-ff-skip-boring-files t
-		helm-buffers-fuzzy-matching t
-		helm-recentf-fuzzy-match t
-		;; helm-autoresize-mode 1
-		helm-ff-file-name-history-use-recentf t)
-	  (helm-mode))
+		  (require 'helm-config)
+		  (setq helm-candidate-number-limit 100)
+		  ;; From https://gist.github.com/antifuchs/9238468
+		  (setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
+				helm-input-idle-delay 0.01  ; this actually updates things
+										; reeeelatively quickly.
+				helm-quick-update t
+				helm-M-x-requires-pattern nil
+				helm-M-x-fuzzy-match t ;; optional fuzzy matching for helm-M-x
+				helm-ff-skip-boring-files t
+				helm-buffers-fuzzy-matching t
+				helm-recentf-fuzzy-match t
+				;; helm-autoresize-mode 1
+				helm-ff-file-name-history-use-recentf t)
+		  (helm-mode))
   :bind (("C-c h" . helm-mini)
-	 ("C-h a" . helm-apropos)
-	 ("C-x C-b" . helm-buffers-list)
-	 ("C-x b" . helm-buffers-list)
-	 ("M-y" . helm-show-kill-ring)
-	 ("M-x" . helm-M-x)
-	 ("C-x c o" . helm-occur) ;; search in current buffer
-	 ("C-x c s" . helm-swoop) ;; search in current buffer
-	 ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers
-	 ("C-x c SPC" . helm-all-mark-rings)))
+		 ("C-h a" . helm-apropos)
+		 ("C-x C-b" . helm-buffers-list)
+		 ("C-x b" . helm-buffers-list)
+		 ("M-y" . helm-show-kill-ring)
+		 ("M-x" . helm-M-x)
+		 ("C-x c o" . helm-occur) ;; search in current buffer
+		 ("C-x c s" . helm-swoop) ;; search in current buffer
+		 ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers
+		 ("C-x c SPC" . helm-all-mark-rings)))
 (helm-autoresize-mode t)
 
 (use-package helm-ag
@@ -171,7 +171,7 @@
   :ensure helm-descbinds
   :defer t
   :bind (("C-h b" . helm-descbinds)
-	 ("C-h w" . helm-descbinds)))
+		 ("C-h w" . helm-descbinds)))
 
 ;; Projectile
 (use-package projectile
@@ -282,13 +282,13 @@
   :ensure company
   :diminish company-mode
   :init (progn
-	  (add-hook 'after-init-hook 'global-company-mode)
-	  (setq company-auto-complete nil)
-	  (global-company-mode t)
-	  (add-to-list 'company-backends 'company-dabbrev t)
-	  (add-to-list 'company-backends 'company-ispell t)
-	  ;;(add-to-list 'company-backends 'company-css t)
-	  (add-to-list 'company-backends 'company-files t)))
+		  (add-hook 'after-init-hook 'global-company-mode)
+		  (setq company-auto-complete nil)
+		  (global-company-mode t)
+		  (add-to-list 'company-backends 'company-dabbrev t)
+		  (add-to-list 'company-backends 'company-ispell t)
+		  ;;(add-to-list 'company-backends 'company-css t)
+		  (add-to-list 'company-backends 'company-files t)))
 ;; 0.1 second delay before the pop-up appears
 (setq company-idle-delay 0.1)
 ;; only one character before auto-completion starts
@@ -302,7 +302,7 @@
   :ensure autopair
   :diminish autopair-mode
   :init (progn
-	  (autopair-global-mode t)))
+		  (autopair-global-mode t)))
 
 ;; flycheck (syntax checking)
 (use-package flycheck
@@ -312,7 +312,7 @@
   :ensure flycheck-pos-tip)
 (eval-after-load 'flycheck
   '(custom-set-variables
-    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+	'(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
 (use-package helm-flycheck
   :ensure helm-flycheck)
 
@@ -408,7 +408,7 @@
 (use-package rainbow-mode
   :ensure rainbow-mode
   :init (progn
-	  (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))))
+		  (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))))
 
 ;; Stylus
 ;; (use-package stylus-mode
@@ -431,11 +431,11 @@
 (use-package php-mode
   :ensure php-mode
   :init(progn
-	 (setq-default flycheck-phpcs-standard "CakePHP")
-	 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
-	 ;;(eldoc-mode 1)
-	 ;;(php-eldoc-enable t)
-	 ))
+		 (setq-default flycheck-phpcs-standard "CakePHP")
+		 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
+		 ;;(eldoc-mode 1)
+		 ;;(php-eldoc-enable t)
+		 ))
 ;; set psr-2 coding style
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
@@ -449,7 +449,7 @@
 (use-package php-eldoc
   :ensure php-eldoc
   :init(progn
-	 (eldoc-mode 1)))
+		 (eldoc-mode 1)))
 
 ;; php-extras
 (use-package php-extras
@@ -521,7 +521,7 @@
 (defun pl/helm-alive-p ()
   "Fix golden-ratio conflict with helm-autoresize."
   (if (boundp 'helm-alive-p)
-      (symbol-value 'helm-alive-p)))
+	  (symbol-value 'helm-alive-p)))
 (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
 ;; Font
@@ -541,8 +541,8 @@
 (use-package smart-mode-line
   :ensure smart-mode-line
   :config (progn
-	    (setq sml/theme nil)
-	    (sml/setup)))
+			(setq sml/theme nil)
+			(sml/setup)))
 
 ;; moe
 (use-package moe-theme
