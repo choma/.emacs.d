@@ -350,7 +350,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; cake views
-(add-hook 'sgml-mode-hook 'web-mode) ;; Auto-start on any markup modes
+(add-hook 'php-mode-hook 'web-mode) ;; Always use it with php-mode
+(add-hook 'sgml-mode-hook 'web-mode) ;; and markup modes
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'css-mode-hook 'web-mode)
 (add-hook 'js-mode-hook 'web-mode)
