@@ -316,7 +316,8 @@
 (with-eval-after-load 'flycheck
   (flycheck-add-mode 'php-phpcs 'web-mode)
   (flycheck-add-mode 'html-tidy 'web-mode)
-  (flycheck-add-mode 'css-csslint 'web-mode))
+  (flycheck-add-mode 'css-csslint 'web-mode)
+  (flycheck-add-mode 'javascript-jshint 'web-mode))
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
