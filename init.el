@@ -56,19 +56,18 @@
 	(package-refresh-contents)
 	(package-install 'use-package)))
 (setq use-package-verbose t)
+(setq use-package-always-ensure t) ;; use :ensure t for all packages
 
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)                ;; if you use :diminish
 (require 'bind-key)                ;; if you use any :bind variant
 
-(use-package auto-compile
-  :ensure t)
+(use-package auto-compile)
 (auto-compile-on-load-mode 1)
 
 ;; Elisp Bug Hunter!!
-;; (use-package bug-hunter
-;;   :ensure t)
+;; (use-package bug-hunter)
 
 
 ;; ENVIRONMENT DATA
@@ -91,42 +90,35 @@
 ;; EMACS USAGE
 
 ;; dired
-(use-package dired+
-  :ensure dired+)
+(use-package dired+)
 ;; Do not open new buffers when visiting new directories
 (diredp-toggle-find-file-reuse-dir 1)
 
 ;; editorconfig (editorconfig.org)
-(use-package editorconfig
-  :ensure editorconfig)
+(use-package editorconfig)
 
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; search matches counter
 (use-package anzu
-  :ensure anzu
   :diminish anzu-mode)
 (global-anzu-mode +1)
 
 ;; Magit!! :D
-(use-package magit
-  :ensure magit)
+(use-package magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(use-package magit-gitflow
-  :ensure magit-gitflow)
+(use-package magit-gitflow)
 (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
 ;; git-timemachine! :D
-(use-package git-timemachine
-  :ensure git-timemachine)
+(use-package git-timemachine)
 
 ;; Helm
 ;; Copied from Sacha Chua:
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html#unnumbered-14
 (use-package helm
-  :ensure helm
   :diminish helm-mode
   :init (progn
 		  (require 'helm-config)
@@ -156,26 +148,22 @@
 		 ("C-x c SPC" . helm-all-mark-rings)))
 (helm-autoresize-mode t)
 
-(use-package helm-ag
-  :ensure helm-ag)
+(use-package helm-ag)
 (defun projectile-helm-ag ()
   "Searching with silversearcher-ag inside projects with projectile."
   (interactive)
   (helm-ag (projectile-project-root)))
 
-(use-package helm-swoop
-  :ensure helm-swoop)
+(use-package helm-swoop)
 
 ;; For describing bindings
 (use-package helm-descbinds
-  :ensure helm-descbinds
   :defer t
   :bind (("C-h b" . helm-descbinds)
 		 ("C-h w" . helm-descbinds)))
 
 ;; Projectile
-(use-package projectile
-  :ensure projectile)
+(use-package projectile)
 (projectile-global-mode)
 ;; (projectile-enable-caching t)
 
@@ -184,13 +172,11 @@
 (setq projectile-svn-command "find . -type f -not -iwholename '*.svn/*' -print0")
 
 ;; Helm-Projectile integration
-(use-package helm-projectile
-  :ensure helm-projectile)
+(use-package helm-projectile)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
-(use-package sudo-edit
-  :ensure sudo-edit)
+(use-package sudo-edit)
 (global-set-key (kbd "C-c C-r") 'sudo-edit-current-file)
 
 
@@ -207,29 +193,24 @@
 (setq show-paren-style 'expression)
 
 ;; Undo tree
-(use-package undo-tree
-  :ensure undo-tree)
+(use-package undo-tree)
 (global-undo-tree-mode)
 
 ;; Highlight nested parens, brackets, braces a different color at each depth.
-(use-package rainbow-delimiters
-  :ensure rainbow-delimiters)
+(use-package rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; agressive indent! :D
-(use-package aggressive-indent
-  :ensure aggressive-indent)
+(use-package aggressive-indent)
 (global-aggressive-indent-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
 ;; multiple-cursors
-(use-package multiple-cursors
-  :ensure multiple-cursors)
+(use-package multiple-cursors)
 (require 'multiple-cursors)
 
 ;; ace-jump
-(use-package ace-jump-mode
-  :ensure ace-jump-mode)
+(use-package ace-jump-mode)
 (autoload
   'ace-jump-mode
   "ace-jump-mode"
@@ -247,7 +228,6 @@
 
 ;; snippets
 (use-package yasnippet
-  :ensure yasnippet
   :diminish yas-minor-mode)
 ;; (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
@@ -279,7 +259,6 @@
 
 ;; company (autocomplete)
 (use-package company
-  :ensure company
   :diminish company-mode
   :init (progn
 		  (add-hook 'after-init-hook 'global-company-mode)
@@ -299,22 +278,18 @@
 
 ;; autopair
 (use-package autopair
-  :ensure autopair
   :diminish autopair-mode
   :init (progn
 		  (autopair-global-mode t)))
 
 ;; flycheck (syntax checking)
-(use-package flycheck
-  :ensure flycheck)
+(use-package flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)  ;; globally enable flycheck
-(use-package flycheck-pos-tip ;; show error messages with popup.el
-  :ensure flycheck-pos-tip)
+(use-package flycheck-pos-tip) ;; show error messages with popup.el
 (eval-after-load 'flycheck
   '(custom-set-variables
 	'(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
-(use-package helm-flycheck
-  :ensure helm-flycheck)
+(use-package helm-flycheck)
 
 
 ;;; Highlights poor English writing.
@@ -325,7 +300,6 @@
 
 ;; idle-highlight-mode (highlight current word ocurrences)
 (use-package idle-highlight-mode
-  :ensure idle-highlight-mode
   :init (progn
 		  (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
 		  (add-hook 'js3-mode-hook (lambda () (idle-highlight-mode t)))
@@ -335,12 +309,10 @@
 ;; LANGUAGES
 
 ;; markdown-mode
-;; (use-package markdown-mode
-;;   :ensure markdown-mode)
+;; (use-package markdown-mode)
 
 ;; web-mode (php,js,html,css)
-(use-package web-mode
-  :ensure web-mode)
+(use-package web-mode)
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
@@ -360,14 +332,12 @@
 
 ;; JS
 ;; js3 (javascript editing)
-(use-package js3-mode
-  :ensure js3-mode)
+(use-package js3-mode)
 
 ;; tern
 (add-to-list 'load-path "~/www/utilidades/tern/emacs/")
 (autoload 'tern-mode "tern.el" nil t)
-(use-package company-tern
-  :ensure company-tern)
+(use-package company-tern)
 (add-to-list 'company-backends 'company-tern)
 (tern-mode t)
 (setq tern-command (append tern-command '("--no-port-file"))) ;; don't create .tern-port files
@@ -375,21 +345,17 @@
 (add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
 ;; jquery documentation
-(use-package jquery-doc
-  :ensure jquery-doc)
+(use-package jquery-doc)
 (add-hook 'javascript-mode-hook 'jquery-doc-setup)
 
 ;; emmet (zen coding)
 (use-package emmet-mode
-  :ensure emmet-mode
   :diminish emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode)
-(use-package helm-emmet
-  :ensure helm-emmet)
+(use-package helm-emmet)
 
 ;; lorem ipsum text filler
-(use-package lorem-ipsum
-  :ensure t)
+(use-package lorem-ipsum)
 ;; use default bindings
 ;; C-c l p	lorem-ipsum-insert-paragraphs
 ;; C-c l s	lorem-ipsum-insert-sentences
@@ -399,7 +365,6 @@
 ;; CSS
 ;; css documentation
 (use-package css-eldoc
-  :ensure css-eldoc
   :init(progn
 		 (eldoc-mode 1)))
 (add-hook 'css-mode-hook 'turn-on-css-eldoc)
@@ -407,30 +372,25 @@
 
 ;; rainbow (displays strings representing colors with the color they represent)
 (use-package rainbow-mode
-  :ensure rainbow-mode
   :init (progn
 		  (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))))
 
 ;; Stylus
-;; (use-package stylus-mode
-;;   :ensure stylus-mode)
+;; (use-package stylus-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.styl\\'" . stylus-mode))  ;; styl
 
 ;; python documentation
 ;;(add-hook 'python-mode-hook 'turn-on-eldoc-mode)
 ;; (use-package anaconda-mode
-;;   :ensure anaconda-mode
 ;;   :init(progn
 ;;	 (eldoc-mode 1)))
-;; (use-package company-anaconda
-;;   :ensure company-anaconda)
+;; (use-package company-anaconda)
 ;; (add-to-list 'company-backends 'company-anaconda)
 
 ;; PHP
 ;; php-mode
 ;; TODO: make doc comments to not indent. Make indentation to always use tabs
 (use-package php-mode
-  :ensure php-mode
   :init(progn
 		 (setq-default flycheck-phpcs-standard "CakePHP")
 		 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
@@ -441,31 +401,26 @@
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
 ;; php-auto-yasnippet
-(use-package php-auto-yasnippets
-  :ensure php-auto-yasnippets)
+(use-package php-auto-yasnippets)
 (require 'php-auto-yasnippets)
 (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
 
 ;; php-eldoc
 (use-package php-eldoc
-  :ensure php-eldoc
   :init(progn
 		 (eldoc-mode 1)))
 
 ;; php-extras
-(use-package php-extras
-  :ensure php-extras)
+(use-package php-extras)
 
 ;; I'm not using it (find a way to use it correctly with cakephp)
 ;; geben (to debug php with xdebug)
-;; (use-package geben
-;;   :ensure geben)
+;; (use-package geben)
 ;; (autoload 'geben "geben" "DBGp protocol frontend, a script debugger" t)
 
 
 ;; 80 column indicator
-(use-package fill-column-indicator
-  :ensure fill-column-indicator)
+(use-package fill-column-indicator)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode t)))
 (setq-default fci-rule-column 80)
 (global-fci-mode t)
@@ -508,14 +463,11 @@
 
 (tooltip-mode t)
 
-(use-package popup
-  :ensure popup)
+(use-package popup)
 
 ;; change window size automatically on focus
 (use-package golden-ratio
-  :ensure golden-ratio
-  :diminish golden-ratio-mode
-  )
+  :diminish golden-ratio-mode)
 (golden-ratio-mode 1)
 ;; Fix golden-ratio conflict with helm-autoresize
 ;; source: https://tuhdo.github.io/helm-intro.html
@@ -540,20 +492,17 @@
 
 ;; smart-mode-line
 (use-package smart-mode-line
-  :ensure smart-mode-line
   :config (progn
 			(setq sml/theme nil)
 			(sml/setup)))
 
 ;; moe
-(use-package moe-theme
-  :ensure moe-theme)
+(use-package moe-theme)
 (moe-dark) ;; moe isn't just a theme, so it could be called this way
 (load-theme 'moe-dark t)
 
 ;; powerline
-(use-package powerline
-  :ensure powerline)
+(use-package powerline)
 (add-hook 'after-change-major-mode-hook 'powerline-moe-theme)
 (powerline-moe-theme)
 
@@ -590,17 +539,13 @@
 ;; DOCS
 ;; TODO: move all docs packages together
 (use-package zeal-at-point
-  :ensure t
   :bind ("C-c z" . zeal-at-point))
 
-(use-package tldr
-  :ensure tldr)
+(use-package tldr)
 
 ;; SERVICES
-(use-package docker
-  :ensure docker)
+(use-package docker)
 
-(use-package restclient
-  :ensure restclient)
+(use-package restclient)
 
 ;;; init.el ends here
