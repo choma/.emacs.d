@@ -318,9 +318,11 @@
 (use-package web-mode)
 (with-eval-after-load 'flycheck
   (flycheck-add-mode 'php-phpcs 'web-mode)
-  (flycheck-add-mode 'html-tidy 'web-mode)
-  (flycheck-add-mode 'css-csslint 'web-mode)
-  (flycheck-add-mode 'javascript-jshint 'web-mode))
+  ;; TODO: enable checkers by file extension
+  ;;(flycheck-add-mode 'html-tidy 'web-mode)
+  ;;(flycheck-add-mode 'css-csslint 'web-mode)
+  ;;(flycheck-add-mode 'javascript-jshint 'web-mode)
+  )
 
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
