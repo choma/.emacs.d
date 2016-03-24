@@ -322,11 +322,6 @@
   (flycheck-add-mode 'css-csslint 'web-mode)
   (flycheck-add-mode 'javascript-jshint 'web-mode))
 
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (setq-default tab-width 4)
-  )
-(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; cake views
