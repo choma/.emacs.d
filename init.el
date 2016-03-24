@@ -94,9 +94,6 @@
 ;; Do not open new buffers when visiting new directories
 (diredp-toggle-find-file-reuse-dir 1)
 
-;; editorconfig (editorconfig.org)
-(use-package editorconfig)
-
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -191,6 +188,12 @@
 ;; Highlight corresponding parentheses when cursor is on one
 (show-paren-mode t)
 (setq show-paren-style 'expression)
+
+;; editorconfig (editorconfig.org)
+(use-package editorconfig)
+(editorconfig-mode 1)
+(add-hook 'editorconfig-custom-hooks
+	  (lambda (hash) (setq web-mode-block-padding 0)))
 
 ;; Undo tree
 (use-package undo-tree)
