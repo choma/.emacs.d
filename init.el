@@ -397,8 +397,6 @@
 ;; TODO: make doc comments to not indent. Make indentation to always use tabs
 (use-package php-mode
   :init(progn
-	 ;; Use global phpcs with Cakephp standard
-	 (setq-default flycheck-phpcs-standard "Cakephp")
 	 ;; Configure per-project phpcs if available
 	 (add-hook 'projectile-mode-hook 'flycheck-config-hook)
 
@@ -411,13 +409,24 @@
 
 (defun flycheck-config-hook ()
   "Hook for configuring flycheck."
+
+  ;; By default use PSR2 standard
+  (setq-default flycheck-phpcs-standard "PSR2")
+
   (when (projectile-project-p)
+    ;; if I'm in a project, probably it is a Cakephp project
+    (setq-default flycheck-phpcs-standard "CakePHP")
+
+    ;; Cakephp v3 paths
     ;; Use per-project checker rules if available
-    (defvar local-phpcs-rules-path (concat (projectile-project-root) "vendor/cakephp/cakephp-codesniffer/CakePHP/"))
+    (defvar local-phpcs-rules-path)
+    (setq-local local-phpcs-rules-path (concat (projectile-project-root) "vendor/cakephp/cakephp-codesniffer/CakePHP/"))
     (when (file-directory-p local-phpcs-rules-path)
       (setq-default flycheck-phpcs-standard local-phpcs-rules-path))
+
     ;; Use per-project checker executable  if available
-    (defvar local-phpcs-executable-path (concat (projectile-project-root) "vendor/bin/phpcs"))
+    (defvar local-phpcs-executable-path)
+    (setq-local local-phpcs-executable-path (concat (projectile-project-root) "vendor/bin/phpcs"))
     (when (file-exists-p local-phpcs-executable-path)
       (setq-default flycheck-php-phpcs-executable local-phpcs-executable-path))
     )
