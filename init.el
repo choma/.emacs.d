@@ -196,7 +196,8 @@
 	  (lambda (hash) (setq web-mode-block-padding 0)))
 
 ;; Undo tree
-(use-package undo-tree)
+(use-package undo-tree
+  :diminish undo-tree-mode)
 (global-undo-tree-mode)
 
 ;; Highlight nested parens, brackets, braces a different color at each depth.
@@ -204,7 +205,8 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; agressive indent! :D
-(use-package aggressive-indent)
+(use-package aggressive-indent
+  :diminish aggressive-indent-mode)
 (global-aggressive-indent-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
@@ -345,6 +347,7 @@
 (use-package company-tern)
 (add-to-list 'company-backends 'company-tern)
 (tern-mode t)
+(diminish 'tern-mode)
 (setq tern-command (append tern-command '("--no-port-file"))) ;; don't create .tern-port files
 (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
 (add-hook 'web-mode-hook (lambda () (tern-mode t)))
@@ -567,6 +570,8 @@
 (global-hi-lock-mode t)
 (diminish 'hi-lock-mode)
 (diminish 'isearch-mode)
+(diminish 'auto-revert-mode)
+
 
 ;; DOCS
 ;; TODO: move all docs packages together
