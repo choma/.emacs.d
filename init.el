@@ -294,7 +294,8 @@
 (eval-after-load 'flycheck
   '(custom-set-variables
     '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
-(use-package helm-flycheck)
+(use-package helm-flycheck
+  :bind("C-c ! h" . helm-flycheck))
 
 
 ;;; Highlights poor English writing.

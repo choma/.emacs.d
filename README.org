@@ -6,4 +6,3 @@ else, but if you take the risk, please report any issue :D
 - Configure [[http://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]] to read my emails
 - Use literate programming in my config with [[http://orgmode.org/worg/org-contrib/babel/intro.html][org-babel]]
 - Use [[https://github.com/abo-abo/hydra][hydra]]
-- Use [[https://github.com/yasuyk/helm-flycheck/][helm-flycheck]]
