@@ -161,7 +161,12 @@
 
 ;; Projectile
 (use-package projectile)
-(projectile-global-mode)
+;; FIX hange issue with tramp
+;; source: https://github.com/bbatsov/prelude/issues/594#issuecomment-220951394
+;; (projectile-global-mode)
+(add-hook 'text-mode-hook 'projectile-mode)
+(add-hook 'prog-mode-hook 'projectile-mode)
+
 ;; (projectile-enable-caching t)
 
 ;; Make projectile search locally only for SVN repos. See:
