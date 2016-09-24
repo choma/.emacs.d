@@ -97,6 +97,15 @@
 
 ;; EMACS USAGE
 
+;; eshell
+;; Copied from: https://github.com/bodil/ohai-emacs/
+;; Define a keybinding to get to your eshell quickly.
+(global-set-key (kbd "C-c e") 'eshell)
+;; Define a pretty prompt.
+(use-package eshell-git-prompt
+  :config
+  (eshell-git-prompt-use-theme 'powerline))
+
 ;; dired
 (use-package dired+)
 ;; Do not open new buffers when visiting new directories
