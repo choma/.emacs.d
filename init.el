@@ -101,6 +101,10 @@
 (use-package dired+)
 ;; Do not open new buffers when visiting new directories
 (diredp-toggle-find-file-reuse-dir 1)
+(use-package dired-hacks-utils)
+(use-package dired-subtree)
+(define-key dired-mode-map "i" 'dired-subtree-insert)
+(define-key dired-mode-map "I" 'dired-subtree-remove)
 
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
