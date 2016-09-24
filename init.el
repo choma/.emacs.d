@@ -106,6 +106,9 @@
   :config
   (eshell-git-prompt-use-theme 'powerline))
 
+;; Disable hl-line-mode in eshell
+(add-hook 'eshell-mode-hook '(lambda() (set (make-local-variable 'global-hl-line-mode) nil)))
+
 ;; dired
 (use-package dired+)
 ;; Do not open new buffers when visiting new directories
