@@ -101,6 +101,11 @@
 (use-package dired+)
 ;; Do not open new buffers when visiting new directories
 (diredp-toggle-find-file-reuse-dir 1)
+
+(use-package dired-k)
+(add-hook 'dired-initial-position-hook 'dired-k)
+(add-hook 'dired-after-readin-hook #'dired-k-no-revert)
+
 (use-package dired-hacks-utils)
 (use-package dired-subtree)
 (define-key dired-mode-map "i" 'dired-subtree-insert)
