@@ -90,9 +90,9 @@
 ;; ORG-MODE
 ;; Indent different levels
 (add-hook 'org-mode-hook
-          (lambda ()
-            (org-indent-mode t))
-          t)
+	  (lambda ()
+	    (org-indent-mode t))
+	  t)
 
 
 ;; EMACS USAGE
