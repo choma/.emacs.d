@@ -439,6 +439,8 @@
 	 (add-hook 'projectile-mode-hook 'flycheck-config-hook)
 
 	 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
+	 ;;(eldoc-mode 1)
+	 ;;(php-eldoc-enable t)
 	 ))
 ;; set psr-2 coding style
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
@@ -472,6 +474,11 @@
 (use-package php-auto-yasnippets)
 (require 'php-auto-yasnippets)
 (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
+
+;; php-eldoc
+(use-package php-eldoc
+  :init(progn
+	 (eldoc-mode 1)))
 
 ;; php-extras
 ;; (use-package php-extras)
