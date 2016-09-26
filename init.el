@@ -225,6 +225,19 @@
   :ensure t
   :init (add-hook 'php-mode-hook 'eldoc-mode))
 
+(use-package company-php
+  :ensure t
+  ;; :commands company-ac-php-backend
+  :init (progn
+	  ;; (add-to-list 'company-backends 'company-ac-php-backend)
+	  (add-to-list 'company-backends 'php-extras-company)
+	  )
+  )
+(add-hook 'php-mode-hook
+	  (lambda ()
+	    (set (make-local-variable 'company-backends)
+		 '((php-extras-company company-dabbrev) company-capf company-files))))
+
 ;; css documentation
 (use-package css-eldoc
   :ensure t
@@ -320,15 +333,17 @@
 
 ;; company (autocomplete)
 (use-package company
+  :ensure t
   :diminish company-mode
   :init (progn
-	  (add-hook 'after-init-hook 'global-company-mode)
-	  (setq company-auto-complete nil)
+	  (setq company-auto-complete t)
 	  (global-company-mode t)
 	  (add-to-list 'company-backends 'company-dabbrev t)
 	  (add-to-list 'company-backends 'company-ispell t)
-	  ;;(add-to-list 'company-backends 'company-css t)
+	  ;; (add-to-list 'company-backends 'company-css t)
+	  (add-to-list 'company-backends 'php-extras-company t)
 	  (add-to-list 'company-backends 'company-files t)))
+(add-hook 'after-init-hook 'global-company-mode)
 ;; 0.1 second delay before the pop-up appears
 (setq company-idle-delay 0.1)
 ;; only one character before auto-completion starts
