@@ -211,6 +211,28 @@
 (global-set-key (kbd "C-c C-r") 'sudo-edit-current-file)
 
 
+;; DOCUMENTATION
+
+;; eldoc
+(use-package eldoc
+  :ensure t
+  :init (progn
+	  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+	  (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)))
+
+;; php documentation
+(use-package php-eldoc
+  :ensure t
+  :init (add-hook 'php-mode-hook 'eldoc-mode))
+
+;; css documentation
+(use-package css-eldoc
+  :ensure t
+  :init(progn
+	 (eldoc-mode 1)))
+(add-hook 'css-mode-hook 'turn-on-css-eldoc)
+
+
 ;; CODE EDITING
 
 ;; syntax highlighting for all buffers
@@ -406,11 +428,6 @@
 (lorem-ipsum-use-default-bindings)
 
 ;; CSS
-;; css documentation
-(use-package css-eldoc
-  :init(progn
-	 (eldoc-mode 1)))
-(add-hook 'css-mode-hook 'turn-on-css-eldoc)
 (add-to-list 'company-backends 'company-css t)
 
 ;; rainbow (displays strings representing colors with the color they represent)
@@ -439,8 +456,6 @@
 	 (add-hook 'projectile-mode-hook 'flycheck-config-hook)
 
 	 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
-	 ;;(eldoc-mode 1)
-	 ;;(php-eldoc-enable t)
 	 ))
 ;; set psr-2 coding style
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
@@ -474,11 +489,6 @@
 (use-package php-auto-yasnippets)
 (require 'php-auto-yasnippets)
 (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
-
-;; php-eldoc
-(use-package php-eldoc
-  :init(progn
-	 (eldoc-mode 1)))
 
 ;; php-extras
 (use-package php-extras)
