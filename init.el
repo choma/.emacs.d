@@ -481,7 +481,7 @@
 	 (eldoc-mode 1)))
 
 ;; php-extras
-;; (use-package php-extras)
+(use-package php-extras)
 
 ;; I'm not using it (find a way to use it correctly with cakephp)
 ;; geben (to debug php with xdebug)
