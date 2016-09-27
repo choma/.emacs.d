@@ -352,6 +352,11 @@
 
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 
+(use-package company-quickhelp
+  :ensure t)
+(company-quickhelp-mode 1)
+
+
 ;; autopair
 (use-package autopair
   :diminish autopair-mode
