@@ -511,7 +511,9 @@
 (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
 
 ;; php-extras
-(use-package php-extras)
+(use-package php-extras
+  :ensure t
+  :defer t)
 
 ;; I'm not using it (find a way to use it correctly with cakephp)
 ;; geben (to debug php with xdebug)
