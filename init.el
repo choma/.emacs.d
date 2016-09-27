@@ -226,17 +226,13 @@
   :init (add-hook 'php-mode-hook 'eldoc-mode))
 
 (use-package company-php
-  :ensure t
-  ;; :commands company-ac-php-backend
-  :init (progn
-	  ;; (add-to-list 'company-backends 'company-ac-php-backend)
-	  (add-to-list 'company-backends 'php-extras-company)
-	  )
-  )
+  :ensure t)
+
 (add-hook 'php-mode-hook
 	  (lambda ()
 	    (set (make-local-variable 'company-backends)
-		 '((php-extras-company company-dabbrev) company-capf company-files))))
+		 '((php-extras-company company-dabbrev-code) company-capf company-files))))
+
 
 ;; css documentation
 (use-package css-eldoc
@@ -338,10 +334,12 @@
   :init (progn
 	  (setq company-auto-complete t)
 	  (global-company-mode t)
-	  (add-to-list 'company-backends 'company-dabbrev t)
 	  (add-to-list 'company-backends 'company-ispell t)
-	  ;; (add-to-list 'company-backends 'company-css t)
+	  (add-to-list 'company-backends 'company-css t)
 	  (add-to-list 'company-backends 'php-extras-company t)
+	  ;; (add-to-list 'company-backends 'company-dabbrev t) ;; dabrev must be after other backends to work correctly (?)
+	  ;; (add-to-list 'company-backends 'company-dabbrev-code t)
+	  (add-to-list 'company-backends 'company-capf t)
 	  (add-to-list 'company-backends 'company-files t)))
 (add-hook 'after-init-hook 'global-company-mode)
 ;; 0.1 second delay before the pop-up appears
