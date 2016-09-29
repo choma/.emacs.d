@@ -333,7 +333,7 @@
   :ensure t
   :diminish company-mode
   :init (progn
-	  (setq company-auto-complete t)
+	  (setq company-auto-complete nil)
 	  (global-company-mode t)
 	  (add-to-list 'company-backends 'company-ispell t)
 	  (add-to-list 'company-backends 'company-css t)
