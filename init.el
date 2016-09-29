@@ -216,6 +216,7 @@
 ;; eldoc
 (use-package eldoc
   :ensure t
+  :diminish eldoc-mode
   :init (progn
 	  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 	  (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)))
