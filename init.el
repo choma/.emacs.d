@@ -97,6 +97,9 @@
 
 ;; EMACS USAGE
 
+;; tramp
+(setq tramp-default-method "ssh")
+
 ;; eshell
 ;; Copied from: https://github.com/bodil/ohai-emacs/
 ;; Define a keybinding to get to your eshell quickly.
