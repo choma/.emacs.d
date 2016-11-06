@@ -573,17 +573,17 @@
 
 (use-package popup)
 
-;; change window size automatically on focus
-(use-package golden-ratio
-  :diminish golden-ratio-mode)
-(golden-ratio-mode 1)
-;; Fix golden-ratio conflict with helm-autoresize
-;; source: https://tuhdo.github.io/helm-intro.html
-(defun pl/helm-alive-p ()
-  "Fix golden-ratio conflict with helm-autoresize."
-  (if (boundp 'helm-alive-p)
-      (symbol-value 'helm-alive-p)))
-(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
+;; ;; change window size automatically on focus
+;; (use-package golden-ratio
+;;   :diminish golden-ratio-mode)
+;; (golden-ratio-mode 1)
+;; ;; Fix golden-ratio conflict with helm-autoresize
+;; ;; source: https://tuhdo.github.io/helm-intro.html
+;; (defun pl/helm-alive-p ()
+;;   "Fix golden-ratio conflict with helm-autoresize."
+;;   (if (boundp 'helm-alive-p)
+;;       (symbol-value 'helm-alive-p)))
+;; (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
 ;; Font
 ;; Fira Mono
