@@ -258,6 +258,9 @@
 (show-paren-mode t)
 (setq show-paren-style 'expression)
 
+;; Use cua-selection-mode
+(cua-selection-mode t)
+
 ;; editorconfig (editorconfig.org)
 (use-package editorconfig)
 (editorconfig-mode 1)
