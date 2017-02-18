@@ -401,22 +401,21 @@
 
 ;; web-mode (php,js,html,css)
 (use-package web-mode)
-(with-eval-after-load 'flycheck
-  (flycheck-add-mode 'php-phpcs 'web-mode)
-  ;; TODO: enable checkers by file extension
-  ;;(flycheck-add-mode 'html-tidy 'web-mode)
-  ;;(flycheck-add-mode 'css-csslint 'web-mode)
-  ;;(flycheck-add-mode 'javascript-jshint 'web-mode)
-  )
+;; NOTE: flycheck doesn't support multi-language buffers, so I won't be using web-mode that much :-/
+;; see: https://github.com/flycheck/flycheck/issues/349
+
+;; (with-eval-after-load 'flycheck
+;;   ;; TODO: enable checkers by file extension
+;;   (flycheck-add-mode 'html-tidy 'web-mode)
+;;   (flycheck-add-mode 'css-csslint 'web-mode)
+;;   )
 
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; cake views
-(add-hook 'php-mode-hook 'web-mode) ;; Always use it with php-mode
 (add-hook 'sgml-mode-hook 'web-mode) ;; and markup modes
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'css-mode-hook 'web-mode)
-(add-hook 'js-mode-hook 'web-mode)
 (setq web-mode-enable-current-element-highlight t) ;; highlight current element
 (setq web-mode-enable-current-column-highlight t) ;; highlight current col
 
