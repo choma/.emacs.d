@@ -386,13 +386,6 @@
 (use-package helm-flycheck
   :bind("C-c ! h" . helm-flycheck))
 
-
-;;; Highlights poor English writing.
-;;(use-package writegood-mode
-;;  :load-path "lisp/writegood-mode/"
-;;  :bind ("C-c n g" . writegood-mode))
-
-
 ;; idle-highlight-mode (highlight current word ocurrences)
 (use-package idle-highlight-mode
   :init (progn
