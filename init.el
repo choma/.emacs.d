@@ -461,10 +461,6 @@
   :init (progn
 	  (add-hook 'css-mode-hook (lambda () (rainbow-mode 1)))))
 
-;; Stylus
-;; (use-package stylus-mode)
-;; (add-to-list 'auto-mode-alist '("\\.styl\\'" . stylus-mode))  ;; styl
-
 ;; python documentation
 ;;(add-hook 'python-mode-hook 'turn-on-eldoc-mode)
 ;; (use-package anaconda-mode
