@@ -71,6 +71,12 @@
 
 
 ;; ENVIRONMENT DATA
+
+;; Make exec-path === PATH, to make sure Emacs finds all executables
+(use-package exec-path-from-shell
+  :init
+  (exec-path-from-shell-initialize))
+
 (setq current-language-environment "Spanish")
 
 ;; Set locale to UTF8
