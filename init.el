@@ -479,37 +479,10 @@
 (use-package php-mode
   :init(progn
 	 ;; Configure per-project phpcs if available
-	 (add-hook 'projectile-mode-hook 'flycheck-config-hook)
-
 	 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
 	 ))
 ;; set psr-2 coding style
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
-
-(defun flycheck-config-hook ()
-  "Hook for configuring flycheck."
-
-  ;; By default use PSR2 standard
-  (setq-default flycheck-phpcs-standard "PSR2")
-
-  (when (projectile-project-p)
-    ;; if I'm in a project, probably it is a Cakephp project
-    (setq-default flycheck-phpcs-standard "CakePHP")
-
-    ;; Cakephp v3 paths
-    ;; Use per-project checker rules if available
-    (defvar local-phpcs-rules-path)
-    (setq-local local-phpcs-rules-path (concat (projectile-project-root) "vendor/cakephp/cakephp-codesniffer/CakePHP/"))
-    (when (file-directory-p local-phpcs-rules-path)
-      (setq-default flycheck-phpcs-standard local-phpcs-rules-path))
-
-    ;; Use per-project checker executable  if available
-    (defvar local-phpcs-executable-path)
-    (setq-local local-phpcs-executable-path (concat (projectile-project-root) "vendor/bin/phpcs"))
-    (when (file-exists-p local-phpcs-executable-path)
-      (setq-default flycheck-php-phpcs-executable local-phpcs-executable-path))
-    )
-  )
 
 ;; php-auto-yasnippet
 (use-package php-auto-yasnippets)
