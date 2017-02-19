@@ -275,7 +275,9 @@
 
 ;; Undo tree
 (use-package undo-tree
-  :diminish undo-tree-mode)
+  :diminish undo-tree-mode
+  :config
+  (setq undo-tree-visualizer-diff t))
 (global-undo-tree-mode)
 
 ;; Highlight nested parens, brackets, braces a different color at each depth.
