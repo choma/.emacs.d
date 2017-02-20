@@ -479,6 +479,7 @@
 	 ))
 ;; set psr-2 coding style
 (add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
+(setq flycheck-phpcs-standard "PSR2")
 
 ;; php-auto-yasnippet
 (use-package php-auto-yasnippets)
