@@ -103,6 +103,10 @@
 
 ;; EMACS USAGE
 
+;; remap previous-buffer, next-buffer (default keys, <left> and <right>, are too far)
+(global-set-key (kbd "C->") 'next-buffer)
+(global-set-key (kbd "C-<") 'previous-buffer)
+
 ;; tramp
 (setq tramp-default-method "ssh")
 
