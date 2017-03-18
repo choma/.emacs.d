@@ -394,7 +394,7 @@
 (use-package idle-highlight-mode
   :init (progn
 	  (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
-	  (add-hook 'js3-mode-hook (lambda () (idle-highlight-mode t)))
+	  (add-hook 'js2-mode-hook (lambda () (idle-highlight-mode t)))
 	  (add-hook 'php-mode-hook (lambda () (idle-highlight-mode t))))
   )
 
@@ -426,8 +426,8 @@
 (setq web-mode-enable-current-column-highlight t) ;; highlight current col
 
 ;; JS
-;; js3 (javascript editing)
-(use-package js3-mode)
+;; js2 (javascript editing)
+(use-package js2-mode)
 
 ;; tern
 (add-to-list 'load-path "~/www/utilidades/tern/emacs/")
@@ -437,7 +437,7 @@
 (tern-mode t)
 (diminish 'tern-mode)
 (setq tern-command (append tern-command '("--no-port-file"))) ;; don't create .tern-port files
-(add-hook 'js3-mode-hook (lambda () (tern-mode t)))
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
 ;; Vue-mode
