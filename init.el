@@ -439,6 +439,8 @@
 (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
 (add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
+;; Vue-mode
+(use-package vue-mode)
 ;; jquery documentation
 (use-package jquery-doc)
 (add-hook 'javascript-mode-hook 'jquery-doc-setup)
