@@ -418,6 +418,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))  ;; html
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode)) ;; cake views
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode)) ;; sass
 (add-hook 'sgml-mode-hook 'web-mode) ;; and markup modes
 (add-hook 'html-mode-hook 'web-mode)
 (add-hook 'css-mode-hook 'web-mode)
