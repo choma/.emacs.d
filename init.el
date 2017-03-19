@@ -257,6 +257,9 @@
 
 
 ;; CODE EDITING
+(use-package expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (use-package skewer-mode
   :defer t
   :init (skewer-setup))
