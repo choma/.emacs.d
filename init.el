@@ -443,6 +443,8 @@
 ;; Turn off js2 mode errors & warnings (we lean on eslint/standard)
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
+;; Increase highlight-level
+(setq js2-highlight-level 3)
 
 ;; tern
 (add-to-list 'load-path "~/www/utilidades/tern/emacs/")
