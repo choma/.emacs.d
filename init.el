@@ -393,10 +393,7 @@
 ;; idle-highlight-mode (highlight current word ocurrences)
 (use-package idle-highlight-mode
   :init (progn
-	  (add-hook 'emacs-lisp-mode-hook (lambda () (idle-highlight-mode t)))
-	  (add-hook 'js2-mode-hook (lambda () (idle-highlight-mode t)))
-	  (add-hook 'php-mode-hook (lambda () (idle-highlight-mode t))))
-  )
+	  (add-hook 'prog-mode-hook (lambda () (idle-highlight-mode t)))))
 
 ;; LANGUAGES
 
