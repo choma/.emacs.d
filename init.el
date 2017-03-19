@@ -649,4 +649,7 @@
 
 (use-package restclient)
 
+(use-package wttrin)
+(setq wttrin-default-cities '("Neuquén?lang=es" "Mendoza?lang=es"))
+
 ;;; init.el ends here
