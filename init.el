@@ -257,6 +257,10 @@
 
 
 ;; CODE EDITING
+
+;; Delete selected region when start typing
+(delete-selection-mode t)
+
 (use-package expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
