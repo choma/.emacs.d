@@ -1,4 +1,5 @@
-;;; package --- Summary
+;;; init.el --- -*- lexical-binding: t; -*-
+
 ;;; Commentary:
 ;;; GNU Emacs configuration file, by Matías Croce
 
