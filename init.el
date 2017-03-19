@@ -257,6 +257,12 @@
 
 
 ;; CODE EDITING
+(use-package skewer-mode
+  :defer t
+  :init (skewer-setup))
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
 
 ;; syntax highlighting for all buffers
 (global-font-lock-mode t)
