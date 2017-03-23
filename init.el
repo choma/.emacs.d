@@ -267,6 +267,7 @@
 
 (use-package skewer-mode
   :defer t
+  :diminish skewer-html-mode
   :init (skewer-setup))
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -286,7 +287,8 @@
 (cua-selection-mode t)
 
 ;; editorconfig (editorconfig.org)
-(use-package editorconfig)
+(use-package editorconfig
+  :diminish editorconfig-mode)
 (editorconfig-mode 1)
 (add-hook 'editorconfig-custom-hooks
 	  (lambda (hash) (setq web-mode-block-padding 0)))
