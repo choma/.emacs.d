@@ -267,7 +267,7 @@
 
 (use-package skewer-mode
   :defer t
-  :diminish skewer-html-mode
+  :diminish (skewer-mode skewer-html-mode skewer-css-mode)
   :init (skewer-setup))
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
