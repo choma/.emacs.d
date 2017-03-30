@@ -229,7 +229,6 @@
 
 ;; eldoc
 (use-package eldoc
-  :ensure t
   :diminish eldoc-mode
   :init (progn
 	  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
@@ -237,11 +236,9 @@
 
 ;; php documentation
 (use-package php-eldoc
-  :ensure t
   :init (add-hook 'php-mode-hook 'eldoc-mode))
 
-(use-package company-php
-  :ensure t)
+(use-package company-php)
 
 (add-hook 'php-mode-hook
 	  (lambda ()
@@ -251,7 +248,6 @@
 
 ;; css documentation
 (use-package css-eldoc
-  :ensure t
   :init(progn
 	 (eldoc-mode 1)))
 (add-hook 'css-mode-hook 'turn-on-css-eldoc)
@@ -364,7 +360,6 @@
 
 ;; company (autocomplete)
 (use-package company
-  :ensure t
   :diminish company-mode
   :init (progn
 	  (setq company-auto-complete nil)
@@ -385,8 +380,7 @@
 
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 
-(use-package company-quickhelp
-  :ensure t)
+(use-package company-quickhelp)
 (company-quickhelp-mode 1)
 
 
@@ -414,8 +408,7 @@
 ;; LANGUAGES
 
 ;; markdown-mode
-(use-package markdown-mode
-  :ensure t)
+(use-package markdown-mode)
 
 ;; web-mode (php,js,html,css)
 (use-package web-mode)
@@ -515,7 +508,6 @@
 
 ;; php-extras
 (use-package php-extras
-  :ensure t
   :defer t)
 
 ;; I'm not using it (find a way to use it correctly with cakephp)
@@ -654,10 +646,8 @@
 (use-package tldr)
 
 ;; SERVICES
-(use-package docker
-  :ensure t)
-(use-package dockerfile-mode
-  :ensure t)
+(use-package docker)
+(use-package dockerfile-mode)
 
 (use-package restclient)
 
