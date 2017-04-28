@@ -333,14 +333,6 @@
 ;; (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
-;; TODO: use yasnippet to do this
-(defun insert-doc-comment ()
-  "To insert doc comments on php functions."
-  (interactive)
-  (insert "/**\n * TODO add description. \n * \n * @param \n * @return \n */"))
-(define-key global-map [(S-f1)] 'insert-doc-comment) ;; shift + F1
-
-
 ;; FILES
 
 ;; backups (source: http://www.emacswiki.org/emacs/BackupDirectory )
