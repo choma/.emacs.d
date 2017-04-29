@@ -372,9 +372,12 @@
 
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 
+;; Temporarily disabled to avoid bug that crash emacs. see:
+;; https://github.com/expez/company-quickhelp/issues/12
+;; https://github.com/expez/company-quickhelp/issues/10
+;; https://github.com/company-mode/company-mode/issues/658 ??
 (use-package company-quickhelp)
-(company-quickhelp-mode 1)
-
+;; (company-quickhelp-mode t)
 
 ;; autopair
 (use-package autopair
