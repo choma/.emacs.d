@@ -438,18 +438,22 @@
 (setq js2-highlight-level 3)
 
 ;; tern
-(add-to-list 'load-path "~/www/utilidades/tern/emacs/")
-(autoload 'tern-mode "tern.el" nil t)
+;; TODO see: https://truongtx.me/2014/04/20/emacs-javascript-completion-and-refactoring
+(use-package tern
+  :diminish tern-mode
+  :config
+  (tern-mode t))
+
 (use-package company-tern)
 (add-to-list 'company-backends 'company-tern)
-(tern-mode t)
-(diminish 'tern-mode)
+
 (setq tern-command (append tern-command '("--no-port-file"))) ;; don't create .tern-port files
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (add-hook 'web-mode-hook (lambda () (tern-mode t)))
 
 ;; Vue-mode
 (use-package vue-mode)
+
 ;; jquery documentation
 (use-package jquery-doc)
 (add-hook 'javascript-mode-hook 'jquery-doc-setup)
