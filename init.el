@@ -405,6 +405,9 @@
 ;; markdown-mode
 (use-package markdown-mode)
 
+;; yaml-mode
+(use-package yaml-mode)
+
 ;; web-mode (php,js,html,css)
 (use-package web-mode)
 ;; NOTE: flycheck doesn't support multi-language buffers, so I won't be using web-mode that much :-/
