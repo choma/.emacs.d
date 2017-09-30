@@ -127,6 +127,8 @@
 (use-package dired+)
 ;; Do not open new buffers when visiting new directories
 (diredp-toggle-find-file-reuse-dir 1)
+;; Move files between split panes
+(setq dired-dwim-target 1)
 
 (use-package dired-k)
 (add-hook 'dired-initial-position-hook 'dired-k)
