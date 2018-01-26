@@ -404,6 +404,9 @@
 
 ;; LANGUAGES
 
+;; .env files
+(use-package dotenv-mode)
+
 ;; markdown-mode
 (use-package markdown-mode)
 
