@@ -387,6 +387,9 @@
   :init (progn
 	  (autopair-global-mode t)))
 
+(use-package toggle-quotes)
+(global-set-key (kbd "C-'") 'toggle-quotes)
+
 ;; flycheck (syntax checking)
 (use-package flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)  ;; globally enable flycheck
