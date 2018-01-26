@@ -659,4 +659,8 @@
 (use-package wttrin)
 (setq wttrin-default-cities '("Neuquén?lang=es" "Mendoza?lang=es"))
 
+;; Enable narrow-to-region
+;; (narrow: C-x n n )
+;; (widen: C-x n w)
+(put 'narrow-to-region 'disabled nil)
 ;;; init.el ends here
