@@ -157,6 +157,13 @@
 ;; git-timemachine! :D
 (use-package git-timemachine)
 
+;; git-gutter
+(use-package fringe-helper)
+(use-package git-gutter-fringe)
+(global-git-gutter-mode +1)
+(require 'git-gutter-fringe)
+;; (setq git-gutter-fr:side 'right-fringe)
+
 ;; Helm
 ;; Copied from Sacha Chua:
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html#unnumbered-14
