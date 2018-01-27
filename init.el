@@ -651,6 +651,7 @@
 (diminish 'hi-lock-mode)
 (diminish 'isearch-mode)
 (diminish 'auto-revert-mode)
+(diminish 'git-gutter-mode)
 
 
 ;; DOCS
