@@ -212,7 +212,8 @@
 	 ("C-h w" . helm-descbinds)))
 
 ;; Projectile
-(use-package projectile)
+(use-package projectile
+  :diminish projectile-mode)
 ;; FIX hange issue with tramp
 ;; source: https://github.com/bbatsov/prelude/issues/594#issuecomment-220951394
 ;; (projectile-global-mode)
