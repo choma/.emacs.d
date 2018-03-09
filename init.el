@@ -533,10 +533,10 @@
 
 
 ;; 80 column indicator
-(use-package fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode t)))
-(setq-default fci-rule-column 80)
-(global-fci-mode t)
+;; (use-package fill-column-indicator)
+;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode t)))
+;; (setq-default fci-rule-column 80) ;; this line breaks global-visual-line-mode
+;; (global-fci-mode t)
 
 ;;Remove useless whitespaces and add a new line at the end of the file
 (setq-default show-trailing-whitespace t)
