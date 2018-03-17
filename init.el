@@ -180,6 +180,7 @@
 		helm-M-x-requires-pattern nil
 		helm-M-x-fuzzy-match t ;; optional fuzzy matching for helm-M-x
 		helm-ff-skip-boring-files t
+		helm-ff-auto-update-initial-value t
 		helm-buffers-fuzzy-matching t
 		helm-recentf-fuzzy-match t
 		;; helm-autoresize-mode 1
@@ -189,6 +190,8 @@
 	 ("C-h a" . helm-apropos)
 	 ("C-x C-b" . helm-buffers-list)
 	 ("C-x b" . helm-buffers-list)
+	 ("C-x r l" .  helm-bookmarks)
+	 ("C-x C-f" . helm-find-files)
 	 ("M-y" . helm-show-kill-ring)
 	 ("M-x" . helm-M-x)
 	 ("C-x c o" . helm-occur) ;; search in current buffer
@@ -196,6 +199,13 @@
 	 ("C-x c m" . helm-multi-swoop-all) ;; search in all buffers
 	 ("C-x c SPC" . helm-all-mark-rings)))
 (helm-autoresize-mode t)
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p t) ; open helm buffer inside current window, not occupy whole other window
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 (use-package helm-ag)
 (defun projectile-helm-ag ()
