@@ -3,16 +3,26 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-		autopair-insert-opening
-		autopair-insert-or-skip-quote
-		keyboard-escape-quit
-		overwrite-mode
-		))
+	autopair-insert-opening
+	autopair-insert-or-skip-quote
+	beginning-of-visual-line
+	c-electric-delete-forward
+	end-of-visual-line
+	keyboard-escape-quit
+	org-self-insert-command
+	overwrite-mode
+	save-buffers-kill-terminal
+	))
 
 (setq mc/cmds-to-run-once
       '(
-		beginning-of-visual-line
-		end-of-visual-line
-		helm-M-x
-		org-self-insert-command
-		))
+	cua-scroll-up
+	multiple-cursors-hydra/mc/mark-all-dwim-and-exit
+	multiple-cursors-hydra/mc/mark-next-like-this
+	multiple-cursors-hydra/mc/mark-next-symbol-like-this
+	multiple-cursors-hydra/mc/mark-next-word-like-this
+	multiple-cursors-hydra/mc/mark-previous-like-this
+	multiple-cursors-hydra/mc/skip-to-previous-like-this
+	multiple-cursors-hydra/nil
+	undefined
+	))
