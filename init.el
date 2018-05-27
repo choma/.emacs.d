@@ -142,6 +142,9 @@
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(use-package atomic-chrome)
+(atomic-chrome-start-server)
+
 ;; search matches counter
 (use-package anzu
   :diminish anzu-mode)
