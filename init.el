@@ -637,8 +637,8 @@
 
 ;; Font
 ;; Fira Mono
-(add-to-list 'default-frame-alist '(font . "Fira Mono 11" ))
-(set-face-attribute 'default t :font "Fira Mono 11" )
+(add-to-list 'default-frame-alist '(font . "Fira Mono 10" ))
+(set-face-attribute 'default t :font "Fira Mono 10" )
 
 (global-linum-mode 1)       ;; line number on left fringe
 (line-number-mode t)        ;; line number on mode line
