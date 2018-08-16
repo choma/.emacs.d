@@ -227,6 +227,8 @@
 ;; Projectile
 (use-package projectile
   :diminish projectile-mode)
+;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 ;; FIX hange issue with tramp
 ;; source: https://github.com/bbatsov/prelude/issues/594#issuecomment-220951394
 ;; (projectile-global-mode)
