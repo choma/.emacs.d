@@ -61,11 +61,12 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)                ;; if you use :diminish
 (require 'bind-key)                ;; if you use any :bind variant
 
 (use-package auto-compile)
 (auto-compile-on-load-mode 1)
+
+(use-package diminish :ensure t)
 
 ;; Elisp Bug Hunter!!
 ;; (use-package bug-hunter)
