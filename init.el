@@ -709,7 +709,9 @@
 (use-package docker)
 (use-package dockerfile-mode)
 (use-package docker-compose-mode)
-(use-package docker-tramp)
+(use-package docker-tramp
+  :config
+  (setq docker-tramp-use-names t))
 
 (use-package restclient)
 
