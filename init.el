@@ -148,7 +148,7 @@
 
 ;; search matches counter
 (use-package anzu
-  :diminish anzu-mode)
+  :diminish)
 (global-anzu-mode +1)
 
 ;; Magit!! :D
@@ -172,7 +172,7 @@
 ;; Copied from Sacha Chua:
 ;; http://pages.sachachua.com/.emacs.d/Sacha.html#unnumbered-14
 (use-package helm
-  :diminish helm-mode
+  :diminish
   :init (progn
 	  (require 'helm-config)
 	  (setq helm-candidate-number-limit 100)
@@ -227,7 +227,7 @@
 
 ;; Projectile
 (use-package projectile
-  :diminish projectile-mode)
+  :diminish)
 ;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 ;; FIX hange issue with tramp
@@ -255,7 +255,7 @@
 
 ;; eldoc
 (use-package eldoc
-  :diminish eldoc-mode
+  :diminish
   :init (progn
 	  (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 	  (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)))
@@ -289,7 +289,8 @@
 
 (use-package skewer-mode
   :defer t
-  :diminish (skewer-mode skewer-html-mode skewer-css-mode)
+  ;; :diminish (skewer-mode skewer-html-mode skewer-css-mode)
+  :diminish
   :init (skewer-setup))
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -310,14 +311,15 @@
 
 ;; editorconfig (editorconfig.org)
 (use-package editorconfig
-  :diminish editorconfig-mode)
-(editorconfig-mode 1)
+  :diminish
+  :config
+  (editorconfig-mode 1))
 (add-hook 'editorconfig-custom-hooks
 	  (lambda (hash) (setq web-mode-block-padding 0)))
 
 ;; Undo tree
 (use-package undo-tree
-  :diminish undo-tree-mode
+  :diminish
   :config
   (setq undo-tree-visualizer-diff t))
 (global-undo-tree-mode)
@@ -328,7 +330,7 @@
 
 ;; agressive indent! :D
 (use-package aggressive-indent
-  :diminish aggressive-indent-mode)
+  :diminish)
 (global-aggressive-indent-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
@@ -382,7 +384,7 @@
 
 ;; snippets
 (use-package yasnippet
-  :diminish yas-minor-mode)
+  :diminish)
 ;; (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
@@ -405,7 +407,7 @@
 
 ;; company (autocomplete)
 (use-package company
-  :diminish company-mode
+  :diminish
   :init (progn
 	  (setq company-auto-complete nil)
 	  (global-company-mode t)
@@ -432,7 +434,7 @@
 
 ;; autopair
 (use-package autopair
-  :diminish autopair-mode
+  :diminish
   :init (progn
 	  (autopair-global-mode t)))
 
@@ -500,7 +502,7 @@
 ;; tern
 ;; TODO see: https://truongtx.me/2014/04/20/emacs-javascript-completion-and-refactoring
 (use-package tern
-  :diminish tern-mode
+  :diminish
   :config
   (tern-mode t))
 
@@ -520,7 +522,7 @@
 
 ;; emmet (zen coding)
 (use-package emmet-mode
-  :diminish emmet-mode)
+  :diminish)
 (add-hook 'web-mode-hook 'emmet-mode)
 (use-package helm-emmet)
 
@@ -626,7 +628,7 @@
 
 ;; ;; change window size automatically on focus
 ;; (use-package golden-ratio
-;;   :diminish golden-ratio-mode)
+;;   :diminish)
 ;; (golden-ratio-mode 1)
 ;; ;; Fix golden-ratio conflict with helm-autoresize
 ;; ;; source: https://tuhdo.github.io/helm-intro.html
