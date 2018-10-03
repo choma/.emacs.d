@@ -582,6 +582,9 @@
 ;; (use-package geben)
 ;; (autoload 'geben "geben" "DBGp protocol frontend, a script debugger" t)
 
+;; INI, SERVICE and CONF files
+(add-to-list 'auto-mode-alist '("\\.gitconfig$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 
 ;; 80 column indicator
 ;; (use-package fill-column-indicator)
