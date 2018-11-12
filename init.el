@@ -390,7 +390,7 @@
 
 ;; snippets
 (use-package yasnippet
-  :diminish)
+  :diminish yas-minor-mode)
 ;; (yas-global-mode t)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
 
