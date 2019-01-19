@@ -652,7 +652,11 @@
 (add-to-list 'default-frame-alist '(font . "Fira Mono 10" ))
 (set-face-attribute 'default t :font "Fira Mono 10" )
 
-(global-linum-mode 1)       ;; line number on left fringe
+;; line number on left fringe
+(if (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode)
+  (global-linum-mode))
+
 (line-number-mode t)        ;; line number on mode line
 (column-number-mode t)      ;; column number on mode line
 (global-hl-line-mode 1)     ;; highlight current line
