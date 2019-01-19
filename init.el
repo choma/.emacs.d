@@ -44,6 +44,7 @@
 			 ("melpa" . "https://melpa.org/packages/")
 			 ))
 (package-initialize)
+(package-refresh-contents)
 
 (setq load-prefer-newer t)
 (add-to-list 'load-path "~/elisp")
