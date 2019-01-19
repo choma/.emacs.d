@@ -119,12 +119,12 @@
 ;; Disable hl-line-mode in eshell
 (add-hook 'eshell-mode-hook '(lambda() (set (make-local-variable 'global-hl-line-mode) nil)))
 
-;; dired
-(use-package dired+)
-;; Do not open new buffers when visiting new directories
-(diredp-toggle-find-file-reuse-dir 1)
-;; Move files between split panes
-(setq dired-dwim-target 1)
+;; ;; dired
+;; (use-package dired+)
+;; ;; Do not open new buffers when visiting new directories
+;; (diredp-toggle-find-file-reuse-dir 1)
+;; ;; Move files between split panes
+;; (setq dired-dwim-target 1)
 
 (use-package dired-k)
 (add-hook 'dired-initial-position-hook 'dired-k)
@@ -264,7 +264,8 @@
 (add-hook 'php-mode-hook
 	  (lambda ()
 	    (set (make-local-variable 'company-backends)
-		 '((php-extras-company company-dabbrev-code) company-capf company-files))))
+		 ;; '((php-extras-company company-dabbrev-code) company-capf company-files))))
+		 '((company-dabbrev-code) company-capf company-files))))
 
 
 ;; css documentation
@@ -414,7 +415,7 @@
 	  (global-company-mode t)
 	  (add-to-list 'company-backends 'company-ispell t)
 	  (add-to-list 'company-backends 'company-css t)
-	  (add-to-list 'company-backends 'php-extras-company t)
+	  ;; (add-to-list 'company-backends 'php-extras-company t)
 	  ;; (add-to-list 'company-backends 'company-dabbrev t) ;; dabrev must be after other backends to work correctly (?)
 	  ;; (add-to-list 'company-backends 'company-dabbrev-code t)
 	  (add-to-list 'company-backends 'company-capf t)
@@ -568,9 +569,9 @@
 (require 'php-auto-yasnippets)
 (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
 
-;; php-extras
-(use-package php-extras
-  :defer t)
+;; ;; php-extras
+;; (use-package php-extras
+;;   :defer t)
 
 ;; I'm not using it (find a way to use it correctly with cakephp)
 ;; geben (to debug php with xdebug)
