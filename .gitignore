@@ -3,6 +3,7 @@
 flycheck-init.el
 *.elc
 *.desktop*
+*.jar
 projectile-bookmarks.eld
 recentf
 /auto-save-list/

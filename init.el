@@ -730,6 +730,22 @@
 (use-package wttrin)
 (setq wttrin-default-cities '("Neuquén?lang=es" "Mendoza?lang=es"))
 
+
+;; OTHER TOOLS
+
+;; Plantuml
+(use-package plantuml-mode
+  :init
+  (setq plantuml-jar-path (concat user-emacs-directory "plantuml.jar"))
+  (setq org-plantuml-jar-path plantuml-jar-path)
+  (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode)))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages 'org-babel-load-languages
+			       (append org-babel-load-languages
+				       '((plantuml . t)))))
+(if (not (file-exists-p plantuml-jar-path))
+    (plantuml-download-jar))
+
 ;; Enable narrow-to-region
 ;; (narrow: C-x n n )
 ;; (widen: C-x n w)
