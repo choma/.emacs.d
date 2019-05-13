@@ -346,27 +346,33 @@
 
 (global-set-key
  (kbd "C-c m")
- (defhydra multiple-cursors-hydra (:hint nil)
+ ;; Hydra for multiple-cursors
+ ;; taken from: https://github.com/abo-abo/hydra/wiki/multiple-cursors
+ (defhydra hydra-multiple-cursors (:hint nil)
    "
-     ^Up^            ^Down^        ^Other^
-----------------------------------------------
-[_p_]   Next    [_n_]   Next    [_l_] Edit lines
-[_P_]   Skip    [_N_]   Skip    [_a_] Mark all
-[_M-p_] Unmark  [_M-n_] Unmark  [_r_] Mark by regexp
-^ ^             ^ ^             [_d_] All Dwim
-^ ^             ^ ^             [_q_] Quit
-"
-  ("l" mc/edit-lines :exit t)
-  ("a" mc/mark-all-like-this :exit t)
-  ("n" mc/mark-next-like-this)
-  ("N" mc/skip-to-next-like-this)
-  ("M-n" mc/unmark-next-like-this)
-  ("p" mc/mark-previous-like-this)
-  ("P" mc/skip-to-previous-like-this)
-  ("M-p" mc/unmark-previous-like-this)
-  ("r" mc/mark-all-in-region-regexp :exit t)
-  ("d" mc/mark-all-dwim :exit t)
-  ("q" nil)))
+ Up^^             Down^^           Miscellaneous           % 2(mc/num-cursors) cursor%s(if (> (mc/num-cursors) 1) \"s\" \"\")
+------------------------------------------------------------------
+ [_p_]   Next     [_n_]   Next     [_l_] Edit lines  [_0_] Insert numbers
+ [_P_]   Skip     [_N_]   Skip     [_a_] Mark all    [_A_] Insert letters
+ [_M-p_] Unmark   [_M-n_] Unmark   [_s_] Search
+ [Click] Cursor at point       [_q_] Quit"
+   ("l" mc/edit-lines :exit t)
+   ("a" mc/mark-all-like-this :exit t)
+   ("n" mc/mark-next-like-this)
+   ("N" mc/skip-to-next-like-this)
+   ("M-n" mc/unmark-next-like-this)
+   ("p" mc/mark-previous-like-this)
+   ("P" mc/skip-to-previous-like-this)
+   ("M-p" mc/unmark-previous-like-this)
+   ("s" mc/mark-all-in-region-regexp :exit t)
+   ("0" mc/insert-numbers :exit t)
+   ("A" mc/insert-letters :exit t)
+   ("<mouse-1>" mc/add-cursor-on-click)
+   ;; Help with click recognition in this hydra
+   ("<down-mouse-1>" ignore)
+   ("<drag-mouse-1>" ignore)
+   ("q" nil))
+ )
 
 ;; ace-jump
 (use-package ace-jump-mode)
