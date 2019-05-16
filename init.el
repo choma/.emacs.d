@@ -753,6 +753,18 @@
 (if (not (file-exists-p plantuml-jar-path))
     (plantuml-download-jar))
 
+;; ORG-MODE
+(setq org-log-done t) ;; Add timestamp when done
+;; key bindings
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+;; config
+(setq org-directory "~/org")
+(setq org-agenda-files (directory-files org-directory t directory-files-no-dot-files-regexp))
+(setq org-default-notes-file (concat org-directory "/refile.org"))
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
+
 ;; Enable narrow-to-region
 ;; (narrow: C-x n n )
 ;; (widen: C-x n w)
