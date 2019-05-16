@@ -748,7 +748,8 @@
 (with-eval-after-load 'org
   (org-babel-do-load-languages 'org-babel-load-languages
 			       (append org-babel-load-languages
-				       '((plantuml . t)))))
+				       '((plantuml . t)
+					 (octave . t)))))
 (if (not (file-exists-p plantuml-jar-path))
     (plantuml-download-jar))
 
