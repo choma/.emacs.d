@@ -761,7 +761,8 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 ;; config
 (setq org-directory "~/org")
-(setq org-agenda-files (directory-files org-directory t directory-files-no-dot-files-regexp))
+(setq org-agenda-files (directory-files-recursively org-directory ""))
+
 (setq org-default-notes-file (concat org-directory "/refile.org"))
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 3))))
 
