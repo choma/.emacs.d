@@ -651,9 +651,9 @@
 ;; (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
 ;; Font
-;; Fira Mono
-(add-to-list 'default-frame-alist '(font . "Fira Mono 10" ))
-(set-face-attribute 'default t :font "Fira Mono 10" )
+;; Roboto Mono
+(add-to-list 'default-frame-alist '(font . "Roboto Mono For Powerline 10" ))
+(set-face-attribute 'default t :font "Roboto Mono For Powerline 10" )
 
 ;; line number on left fringe
 (if (version<= "26.0.50" emacs-version )
