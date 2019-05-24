@@ -688,6 +688,8 @@
 (require 'moe-flycheck-mode-line)
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'moe-flycheck-mode-line-mode))
+;; Override moe-theme to show keywords in bold
+(set-face-attribute 'font-lock-keyword-face nil :bold t)
 
 
 ;; smart-mode-line directory prefixes
