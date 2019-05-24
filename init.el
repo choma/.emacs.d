@@ -258,7 +258,7 @@
 
 ;; php documentation
 (use-package php-eldoc
-  :init (add-hook 'php-mode-hook 'eldoc-mode))
+  :config (add-hook 'php-mode-hook 'php-eldoc-enable))
 
 (use-package company-php)
 
