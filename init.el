@@ -564,6 +564,8 @@
 ;; TODO: make doc comments to not indent. Make indentation to always use tabs
 (use-package php-mode
   :init(progn
+	 ;; Avoid HTML compatibility. See: https://github.com/emacs-php/php-mode#avoid-html-template-compatibility
+	 (setq php-template-compatibility nil)
 	 ;; Configure per-project phpcs if available
 	 (setq-default php-manual-path "~/www/utilidades/docs/php5/php-manual/") ;; php docs local copy
 	 ))
