@@ -652,10 +652,7 @@
 ;;       (symbol-value 'helm-alive-p)))
 ;; (add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
-;; Font
-;; Roboto Mono
-(add-to-list 'default-frame-alist '(font . "Roboto Mono For Powerline 10" ))
-(set-face-attribute 'default t :font "Roboto Mono For Powerline 10" )
+(set-frame-font "Source Code Pro for Powerline Medium 10" nil t)
 
 ;; line number on left fringe
 (if (version<= "26.0.50" emacs-version )
