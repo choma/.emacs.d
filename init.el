@@ -132,9 +132,11 @@
 (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
 
 (use-package dired-hacks-utils)
-(use-package dired-subtree)
-(define-key dired-mode-map "i" 'dired-subtree-insert)
-(define-key dired-mode-map "I" 'dired-subtree-remove)
+(use-package dired-subtree
+  :after dired
+  :config
+  (bind-key "<tab>" #'dired-subtree-toggle dired-mode-map)
+  (bind-key "<backtab>" #'dired-subtree-cycle dired-mode-map))
 
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
