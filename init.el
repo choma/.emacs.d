@@ -120,6 +120,11 @@
 ;; Disable hl-line-mode in eshell
 (add-hook 'eshell-mode-hook '(lambda() (set (make-local-variable 'global-hl-line-mode) nil)))
 
+(use-package dired
+  :ensure nil ;; don't try to install it
+  :defer t
+  :config
+  (put 'dired-find-alternate-file 'disabled nil))
 ;; ;; dired
 ;; (use-package dired+)
 ;; ;; Do not open new buffers when visiting new directories
