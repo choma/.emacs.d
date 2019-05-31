@@ -138,6 +138,12 @@
   (bind-key "<tab>" #'dired-subtree-toggle dired-mode-map)
   (bind-key "<backtab>" #'dired-subtree-cycle dired-mode-map))
 
+;; narrow dired to match filter
+(use-package dired-narrow
+  :after dired-k
+  :bind (:map dired-mode-map
+	      ("/" . dired-narrow)))
+
 ;; Ask "y" or "n" instead of "yes" or "no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
