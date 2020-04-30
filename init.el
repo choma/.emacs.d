@@ -75,7 +75,9 @@
   :init
   (exec-path-from-shell-initialize))
 
+(require 'iso-transl) ;; Make <dead-acute> work again
 (setq current-language-environment "Spanish")
+(setq default-input-method "spanish-prefix")
 
 ;; Set locale to UTF8
 (set-language-environment 'utf-8)
