@@ -99,7 +99,7 @@
 	  (lambda ()
 	    (org-indent-mode t))
 	  t)
-
+(setq org-modules '(org-protocol))
 
 ;; EMACS USAGE
 
