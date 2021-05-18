@@ -321,6 +321,90 @@
 ;; Use cua-selection-mode
 (cua-selection-mode t)
 
+
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
+(use-package lsp-mode
+  :config
+  (setq lsp-completion-enable-additional-text-edit nil)
+  (setq lsp-java-format-enabled nil)
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c C-l")
+  ;; Performance
+  (setq gc-cons-threshold 100000000)
+  (setq read-process-output-max (* 1024 1024)) ;; 1mb
+  ;; (setq lsp-idle-delay 1)
+  (setq lsp-log-io nil) ; if set to true can cause a performance hit
+  ;;
+  (setq lsp-java-vmargs '("-XX:+UseParallelGC"
+			  "-XX:GCTimeRatio=4"
+			  "-XX:AdaptiveSizePolicyWeight=90"
+			  "-Dsun.zip.disableMemoryMapping=true"
+			  "-Xmx1G" ;;"-Xmx2G"
+			  "-Xms100m"
+			  ;; Enable lombok support
+			  "-javaagent:/home/choma/.m2/repository/org/projectlombok/lombok/1.16.22/lombok-1.16.22.jar"
+			  "-Xbootclasspath/a:/home/choma/.m2/repository/org/projectlombok/lombok/1.16.22/lombok-1.16.22.jar")
+	)
+
+  ;; (setq lsp-java-configuration-runtimes '[
+  ;;					  ;; NOPE: https://github.com/microsoft/vscode-java-test/issues/1048#issuecomment-676318039
+  ;;					  ;; (
+  ;;					  ;;  :name "JavaSE-1.8"
+  ;;					  ;;  :path "/usr/lib/jvm/adoptopenjdk-8-openj9-amd64/"
+  ;;					  ;;  :default t
+  ;;					  ;;  )
+  ;;					  (
+  ;;					   :name "JavaSE-11"
+  ;;					   :path "/usr/lib/jvm/java-11-openjdk-amd64/"
+  ;;					   )
+  ;;					  ])
+
+  :config
+  ;; https://github.com/emacs-lsp/lsp-mode/issues/1672#issuecomment-626277665
+  (define-key lsp-mode-map (kbd "C-c C-l") lsp-command-map)
+
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+	 ;; (XXX-mode . lsp-deferred)
+	 (java-mode . lsp-deferred)
+	 ;; if you want which-key integration
+	 ;; (lsp-mode . lsp-enable-which-key-integration)
+	 )
+
+  :commands lsp lsp-deferred)
+
+;; optionally
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+;; if you are helm user
+(use-package helm-lsp
+  :commands helm-lsp-workspace-symbol)
+;; if you are ivy user
+;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs
+  :commands lsp-treemacs-errors-list)
+
+;; optionally if you want to use debugger
+(use-package dap-mode
+  :after lsp-mode
+  :config (dap-auto-configure-mode))
+(use-package dap-java
+  :ensure nil)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+;; optional if you want which-key integration
+;; (use-package which-key
+;;   :config
+;;   (which-key-mode))
+
+(use-package helm-lsp)
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
 ;; editorconfig (editorconfig.org)
 (use-package editorconfig
   :diminish
