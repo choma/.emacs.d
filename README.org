@@ -1,8 +1,1 @@
-* choma's Emacs configuration
-This is my personal emacs configuration. It is not meant to be used by anybody
-else, but if you take the risk, please report any issue :D
-
-** TODOs
-- Configure [[http://www.djcbsoftware.nl/code/mu/mu4e.html][mu4e]] to read my emails
-- Use literate programming in my config with [[http://orgmode.org/worg/org-contrib/babel/intro.html][org-babel]]
-- Use [[https://github.com/abo-abo/hydra][hydra]]
+* Moved to: https://gitlab.com/choma/.emacs.d
